@@ -1,17 +1,15 @@
 # 啊哈
 
-一、系统状态查看工具
-==========
+# 一、系统状态查看工具
 
-1、使用 Linux
-----------
+## 1、使用 Linux
 
 ### 超级用户
 
 **root 用户（超级用户）**
 
-*   root 不受权限的制约，可随意修改和删除文件
-*   root 用户误删重要文件可能带来严重后果
+- root 不受权限的制约，可随意修改和删除文件
+- root 用户误删重要文件可能带来严重后果
 
 **创建新用户**
 
@@ -19,7 +17,7 @@
 
 登录 shell：一般为 bash，也可以选其他 shell，其他系统程序，甚至自设计的程序。
 
-*   用户可以从普通终端或者网络虚拟终端登录进入系统
+- 用户可以从普通终端或者网络虚拟终端登录进入系统
 
 ### 使用 Linux
 
@@ -27,17 +25,16 @@
 
 登录成功后出现 shell 提示符
 
-*   `$` Bourne Shell 系列 (sh, ksh, bash)
+- `$` Bourne Shell 系列 (sh, ksh, bash)
 
-*   `#` 当前用户为超级用户 root（操作时要小心）
+- `#` 当前用户为超级用户 root（操作时要小心）
 
 **系统的使用**
 
-*   出现 shell 提示符以后就可输入系统命令
-*   与 Windows 不同的是组成命令的英文字母大小写敏感
+- 出现 shell 提示符以后就可输入系统命令
+- 与 Windows 不同的是组成命令的英文字母大小写敏感
 
-2、几个基本的 Linux 命令
-----------------
+## 2、几个基本的 Linux 命令
 
 ### man
 
@@ -45,16 +42,16 @@
 
 **使用方法**：
 
-*   `man name`
-*   `man section name`，章节编号：1 命令，2 系统调用，3 库函数，5 配置文件
-*   `man -k regexp`，列出关键字（keyword）与正则表达式 regexp 匹配的手册项目录
+- `man name`
+- `man section name`，章节编号：1 命令，2 系统调用，3 库函数，5 配置文件
+- `man -k regexp`，列出关键字（keyword）与正则表达式 regexp 匹配的手册项目录
 
 **手册内容**：
 
-*   列出基本功能和语法
-*   对于 C 语言的函数调用，列出头文件和链接函数库
-*   功能说明
-*   SEE ALSO：有关的其它项目的名字和章节号
+- 列出基本功能和语法
+- 对于 C 语言的函数调用，列出头文件和链接函数库
+- 功能说明
+- SEE ALSO：有关的其它项目的名字和章节号
 
 ### date
 
@@ -62,24 +59,24 @@
 
 **使用方法**：
 
-* `date`，读取系统日期和时间，Wed Nov 7 21:09:16 CST 2018
+- `date`，读取系统日期和时间，Wed Nov 7 21:09:16 CST 2018
 
-* 可以根据需要定制使出格式
+- 可以根据需要定制使出格式
 
-  * `date "+%Y-%m-%d %H:%M:%S Day %j"`，2018-11-07 21:09:54 Day 311
+  - `date "+%Y-%m-%d %H:%M:%S Day %j"`，2018-11-07 21:09:54 Day 311
 
-  * `date "+%s"`，1541596457
+  - `date "+%s"`，1541596457
 
-  * > 311 指的是今天是今年的第 311 天
+  - > 311 指的是今天是今年的第 311 天
     >
     > 格式控制字符串：第一个字符必须为 + 号，%Y 代表年号， %m 代表月份，%M 代表分钟。
     >
     > %s 秒坐标（从 UTC1970 开始），常用于计算时间间隔
 
-* 通过 NTP 协议校对系统事件，`ntpdate`
+- 通过 NTP 协议校对系统事件，`ntpdate`
 
-  *   `ntpdate 0.pool.ntp.org`，设置时间，必须 root 用户
-  *   `ntpdate -q 0.pool.ntp.org`，查询时间，普通用户也可以
+  - `ntpdate 0.pool.ntp.org`，设置时间，必须 root 用户
+  - `ntpdate -q 0.pool.ntp.org`，查询时间，普通用户也可以
 
 ### cal
 
@@ -87,42 +84,42 @@
 
 **使用方法**：
 
-*   `cal`，打印当前月份的日历
-*   `cal year`，打印某年的日历
-*   `cal month year`，打印某年某月的日历
+- `cal`，打印当前月份的日历
+- `cal year`，打印某年的日历
+- `cal month year`，打印某年某月的日历
 
 ### bc
 
 作用：计算器
 
-*   基本计算器功能
-*   支持变量、函数，条件和循环等编程功能（类似 C 语言的小编程语言）
-*   可以进行任意精度的计算
+- 基本计算器功能
+- 支持变量、函数，条件和循环等编程功能（类似 C 语言的小编程语言）
+- 可以进行任意精度的计算
 
 **精度**：
 
-*   缺省精度
-    *   `bc`，缺省精度为小数点后 0 位
-    *   `bc -l`，缺省精度为小数点后 20 位
-*   可以通过设置 scale 自行决定精度（小数点位数）
-    *   scale=10000
-    *   s(1.0)
+- 缺省精度
+  - `bc`，缺省精度为小数点后 0 位
+  - `bc -l`，缺省精度为小数点后 20 位
+- 可以通过设置 scale 自行决定精度（小数点位数）
+  - scale=10000
+  - s(1.0)
 
 ### passwd
 
 作用：更换口令
 
-* 普通用户
+- 普通用户
 
-  *   使用 `passwd` 命令更改自己的口令，更改前系统先验证原来的口令
+  - 使用 `passwd` 命令更改自己的口令，更改前系统先验证原来的口令
 
-* 超级用户 root
+- 超级用户 root
 
-  * 修改口令之前不验证旧的口令
+  - 修改口令之前不验证旧的口令
 
-  * 可修改自己的口令，还可强迫设置其它用户口令
+  - 可修改自己的口令，还可强迫设置其它用户口令
 
-  * 命令 `passwd liu`
+  - 命令 `passwd liu`
 
     > 将用户 liu 的口令强迫设置为某一已知口令
     >
@@ -130,10 +127,9 @@
     >
     > 当普通用户忘记口令时，可请求超级用户强设口令
 
-  * 修改超级用户 root 的口令时要特别注意
+  - 修改超级用户 root 的口令时要特别注意
 
-3、了解系统状态
---------
+## 3、了解系统状态
 
 ### who
 
@@ -141,18 +137,18 @@
 
 **使用方法**：
 
-* `who`，列出当前已登录入系统的用户信息
+- `who`，列出当前已登录入系统的用户信息
 
   ![](linux.imgs/4720c177e2042e5bb43b79735da0c469-168575847798180.png)
 
-  *   第一列：用户名；第二列：终端设备的设备文件名
-  *   设备在文件系统中有一个文件名（同普通磁盘文件不同的是文件类型属于特殊文件），设备文件一般放于目录 /dev 下
+  - 第一列：用户名；第二列：终端设备的设备文件名
+  - 设备在文件系统中有一个文件名（同普通磁盘文件不同的是文件类型属于特殊文件），设备文件一般放于目录 /dev 下
 
-* `tty`，打印出当前终端的设备文件名
+- `tty`，打印出当前终端的设备文件名
 
-* `who am i`，列出当前终端上的登录用户信息
+- `who am i`，列出当前终端上的登录用户信息
 
-* `whoami`，仅列出当前终端上的登录用户名
+- `whoami`，仅列出当前终端上的登录用户名
 
 ### uptime
 
@@ -160,11 +156,11 @@
 
 **使用方法**：
 
-*   `uptime`
-    *   系统自启动后到现在的运行时间
-    *   当前登录入系统的用户数
-    *   近期 1 分钟，5 分钟，15 分钟内系统 CPU 的负载
-        *   平均调度队列长度
+- `uptime`
+  - 系统自启动后到现在的运行时间
+  - 当前登录入系统的用户数
+  - 近期 1 分钟，5 分钟，15 分钟内系统 CPU 的负载
+    - 平均调度队列长度
 
 ![](linux.imgs/2105e75288f9d348b797e278069b0a96-168575847798282.png)
 
@@ -174,11 +170,11 @@
 
 ![](linux.imgs/9d4233095ddfd7d77b3374f65cbda2c4-168575847798284.png)
 
-*   VIRT 进程逻辑地址空间大小（virtual）
-*   RES 驻留内存数（Resident），也就是占用物理内存数
-*   SHR 与其他进程共享的内存数（share）
-*   %CPU 占用 CPU 百分比，%MEM 占用内存百分比
-*   TIME+ 占用的 CPU 时间
+- VIRT 进程逻辑地址空间大小（virtual）
+- RES 驻留内存数（Resident），也就是占用物理内存数
+- SHR 与其他进程共享的内存数（share）
+- %CPU 占用 CPU 百分比，%MEM 占用内存百分比
+- TIME+ 占用的 CPU 时间
 
 ### ps
 
@@ -186,15 +182,13 @@
 
 **选项**：
 
-*   用于控制列表的行数 (进程范围) 和列数(每进程列出的属性内容)
-*   无选项：只列出在当前终端上启动的进程，列出的项目有：PID，TTY，TIME，COMMAND
-*   `-e` 选项：列出系统中所有的进程（进程范围）
-*   `-f` 选项：以 full 格式列出每一个进程（控制列的数目）
-*   `-l` 选项：以 long 格式列出每一个进程（控制列的数目）
+- 用于控制列表的行数 (进程范围) 和列数(每进程列出的属性内容)
+- 无选项：只列出在当前终端上启动的进程，列出的项目有：PID，TTY，TIME，COMMAND
+- `-e` 选项：列出系统中所有的进程（进程范围）
+- `-f` 选项：以 full 格式列出每一个进程（控制列的数目）
+- `-l` 选项：以 long 格式列出每一个进程（控制列的数目）
 
 ![](linux.imgs/b6c8e758e3820da7b9be842a029e308a-168575847798288.png)
-
-![](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAACbklEQVRoQ+2aMU4dMRCGZw6RC1CSSyQdLZJtKQ2REgoiRIpQkCYClCYpkgIESQFIpIlkW+IIcIC0gUNwiEFGz+hlmbG9b1nesvGW++zxfP7H4/H6IYzkwZFwQAUZmpJVkSeniFJKA8ASIi7MyfkrRPxjrT1JjZ8MLaXUDiJuzwngn2GJaNd7vyP5IoIYY94Q0fEQIKIPRGS8947zSQTRWh8CwLuBgZx479+2BTkHgBdDAgGAC+fcywoyIFWqInWN9BSONbTmFVp/AeA5o+rjKRJ2XwBYRsRXM4ZXgAg2LAPzOCDTJYQx5pSIVlrC3EI45y611osMTHuQUPUiYpiVooerg7TWRwDAlhSM0TuI+BsD0x4kGCuFSRVzSqkfiLiWmY17EALMbCAlMCmI6IwxZo+INgQYEYKBuW5da00PKikjhNNiiPGm01rrbwDwofGehQjjNcv1SZgddALhlJEgwgJFxDNr7acmjFLqCyJuTd6LEGFttpmkYC91Hrk3s1GZFERMmUT01Xv/sQljjPlMRMsxO6WULwnb2D8FEs4j680wScjO5f3vzrlNJszESWq2LYXJgTzjZm56MCHf3zVBxH1r7ftU1splxxKYHEgoUUpTo+grEf303rPH5hxENJqDKQEJtko2q9zGeeycWy3JhpKhWT8+NM/sufIhBwKI+Mta+7pkfxKMtd8Qtdbcx4dUQZcFCQ2I6DcAnLUpf6YMPxhIDDOuxC4C6djoQUE6+tKpewWZ1wlRkq0qUhXptKTlzv93aI3jWmE0Fz2TeujpX73F9TaKy9CeMk8vZusfBnqZ1g5GqyIdJq+XrqNR5AahKr9CCcxGSwAAAABJRU5ErkJggg==)
 
 ### free
 
@@ -202,9 +196,9 @@
 
 ![](linux.imgs/875780651e009466afd269ba4d463d5c-168575847798286.png)
 
-*   内存总量 4GB, 空闲 309MB。Linux 为提高效率，利用程序暂时不用的内存，缓冲读写过的磁盘信息。当前有 717MB 的 buffer / cache。
-*   不计 buffers / cache, 系统有实际可利用资源 734MB
-*   打印了磁盘 Swap 区的使用情况
+- 内存总量 4GB, 空闲 309MB。Linux 为提高效率，利用程序暂时不用的内存，缓冲读写过的磁盘信息。当前有 717MB 的 buffer / cache。
+- 不计 buffers / cache, 系统有实际可利用资源 734MB
+- 打印了磁盘 Swap 区的使用情况
 
 ### vmstat
 
@@ -212,13 +206,9 @@
 
 ![](linux.imgs/74c96429cba8502052cac67ccc433a43-168575847798292.png)
 
-![](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAACbklEQVRoQ+2aMU4dMRCGZw6RC1CSSyQdLZJtKQ2REgoiRIpQkCYClCYpkgIESQFIpIlkW+IIcIC0gUNwiEFGz+hlmbG9b1nesvGW++zxfP7H4/H6IYzkwZFwQAUZmpJVkSeniFJKA8ASIi7MyfkrRPxjrT1JjZ8MLaXUDiJuzwngn2GJaNd7vyP5IoIYY94Q0fEQIKIPRGS8947zSQTRWh8CwLuBgZx479+2BTkHgBdDAgGAC+fcywoyIFWqInWN9BSONbTmFVp/AeA5o+rjKRJ2XwBYRsRXM4ZXgAg2LAPzOCDTJYQx5pSIVlrC3EI45y611osMTHuQUPUiYpiVooerg7TWRwDAlhSM0TuI+BsD0x4kGCuFSRVzSqkfiLiWmY17EALMbCAlMCmI6IwxZo+INgQYEYKBuW5da00PKikjhNNiiPGm01rrbwDwofGehQjjNcv1SZgddALhlJEgwgJFxDNr7acmjFLqCyJuTd6LEGFttpmkYC91Hrk3s1GZFERMmUT01Xv/sQljjPlMRMsxO6WULwnb2D8FEs4j680wScjO5f3vzrlNJszESWq2LYXJgTzjZm56MCHf3zVBxH1r7ftU1splxxKYHEgoUUpTo+grEf303rPH5hxENJqDKQEJtko2q9zGeeycWy3JhpKhWT8+NM/sufIhBwKI+Mta+7pkfxKMtd8Qtdbcx4dUQZcFCQ2I6DcAnLUpf6YMPxhIDDOuxC4C6djoQUE6+tKpewWZ1wlRkq0qUhXptKTlzv93aI3jWmE0Fz2TeujpX73F9TaKy9CeMk8vZusfBnqZ1g5GqyIdJq+XrqNR5AahKr9CCcxGSwAAAABJRU5ErkJggg==)
+# 二、文本文件处理
 
-二、文本文件处理
-========
-
-1、读取文件内容
---------
+## 1、读取文件内容
 
 ### more / less
 
@@ -226,10 +216,10 @@
 
 **使用方法**：
 
-*   `more shudu.c` 指定一个文件
-*   `more *.[ch]` 指定多个文件
-*   `ls -l | more` 指定 0 个文件
-*   `less shudu.c`
+- `more shudu.c` 指定一个文件
+- `more *.[ch]` 指定多个文件
+- `ls -l | more` 指定 0 个文件
+- `less shudu.c`
 
 **more**
 
@@ -241,9 +231,9 @@
 
 less is more
 
-*   回退浏览的功能更强
-*   可直接使键盘的上下箭头键，或者 j, k，类似 vi 的光标定位键，以及 `PgUp`, `PgDn`, `Home`, `End`键
-*   有的 Unix 系统不提供 less 命令，但是可利用 more 命令的增强功能
+- 回退浏览的功能更强
+- 可直接使键盘的上下箭头键，或者 j, k，类似 vi 的光标定位键，以及 `PgUp`, `PgDn`, `Home`, `End`键
+- 有的 Unix 系统不提供 less 命令，但是可利用 more 命令的增强功能
 
 ### cat 与 od
 
@@ -254,16 +244,16 @@ less is more
 
 **举例**
 
-*   `cat tryl.c` 命令行参数 1 个
-*   `cat –n shudu.c` 显示行号
-*   `cat tryl.c tryx.c try.h` 命令行参数 3 个
-*   `cat >try` 命令行参数 =0 个，从 stdin 获取数据，直到 `ctrl-d`
-*   `cat tryl.c try2.c try.h > trysrc`
-*   `cat makefile *.[ch] > src`
-*   `od –t x1 x.dat` 以十六进制打印文件 x.dat 各字节
-*   `od –t x1 x.dat | more` 以十六进制打印文件 x.dat 各字节
-*   `od –c /bin/bash` 逐字符方式打印文件，遇到不可打印字符打印编码
-*   `echo abcdABCD | od –t x1` 十六进制显示字符的 ASCII 码
+- `cat tryl.c` 命令行参数 1 个
+- `cat –n shudu.c` 显示行号
+- `cat tryl.c tryx.c try.h` 命令行参数 3 个
+- `cat >try` 命令行参数 =0 个，从 stdin 获取数据，直到 `ctrl-d`
+- `cat tryl.c try2.c try.h > trysrc`
+- `cat makefile *.[ch] > src`
+- `od –t x1 x.dat` 以十六进制打印文件 x.dat 各字节
+- `od –t x1 x.dat | more` 以十六进制打印文件 x.dat 各字节
+- `od –c /bin/bash` 逐字符方式打印文件，遇到不可打印字符打印编码
+- `echo abcdABCD | od –t x1` 十六进制显示字符的 ASCII 码
 
 ### head 与 tail
 
@@ -273,14 +263,14 @@ less is more
 
 **举例**
 
-*   `head –n 15 ab.c` 显示文件 ab.c 中前 15 行
-*   `head –n 23 a.c b.c c.c | more` 显示三个文件各自的前 23 行共显示 69 行
-*   `tail –n 40 liu.mail`
-*   `head –n -20 msg.c` 除去文件尾部 20 行其余均算 “头”
-*   `tail –n +20 msg.c` 除去文件头部 20 行其余均算作 “尾”
-*   `tail -f debug.txt` 实时打印文件尾部被追加的内容（选项 -f : forever）  
-    `netstat -s -p tcp | head`  
-    `ls -s | sort | head –n 20`
+- `head –n 15 ab.c` 显示文件 ab.c 中前 15 行
+- `head –n 23 a.c b.c c.c | more` 显示三个文件各自的前 23 行共显示 69 行
+- `tail –n 40 liu.mail`
+- `head –n -20 msg.c` 除去文件尾部 20 行其余均算 “头”
+- `tail –n +20 msg.c` 除去文件头部 20 行其余均算作 “尾”
+- `tail -f debug.txt` 实时打印文件尾部被追加的内容（选项 -f : forever）  
+  `netstat -s -p tcp | head`  
+  `ls -s | sort | head –n 20`
 
 ### tee
 
@@ -288,40 +278,40 @@ less is more
 
 **举例**
 
-*   `./myap | tee myap.log`
+- `./myap | tee myap.log`
 
 ### wc
 
 作用：字计数（word count）
 
-*   列出文件中一共有多少行，有多少个单词，多少字符
-*   当指定的文件数大于 1 时，最后还列出一个合计
-*   常用选项 `-l`：只列出行计数
+- 列出文件中一共有多少行，有多少个单词，多少字符
+- 当指定的文件数大于 1 时，最后还列出一个合计
+- 常用选项 `-l`：只列出行计数
 
 **举例**
 
-*   `wc sum.c` （1 个文件）
-*   `wc x.c makefile stat.sh` （多个文件）
-*   `wc -l *.c makefile start.sh` （只列出文件分别有多少行）
-*   `ps -ef | wc -l` （0 个）
-*   `ps -ef | grep liang | wc -l` （0 个）
-*   `who | wc -l` （0 个）
+- `wc sum.c` （1 个文件）
+- `wc x.c makefile stat.sh` （多个文件）
+- `wc -l *.c makefile start.sh` （只列出文件分别有多少行）
+- `ps -ef | wc -l` （0 个）
+- `ps -ef | grep liang | wc -l` （0 个）
+- `who | wc -l` （0 个）
 
 ### sort
 
 作用：对文件内容排序
 
-*   `-n` 选项（Numberic）：对于数字按照算术值大小排序，而不是按照字符串比较规则，例如 123 与 67
-*   可以选择行中某一部分作为排序关键字
-*   选择升序或降序
-*   字符串比较时对字母是否区分大小写
-*   内排序外排序等算法参数选择（当数据量较大时，性能调优）
+- `-n` 选项（Numberic）：对于数字按照算术值大小排序，而不是按照字符串比较规则，例如 123 与 67
+- 可以选择行中某一部分作为排序关键字
+- 选择升序或降序
+- 字符串比较时对字母是否区分大小写
+- 内排序外排序等算法参数选择（当数据量较大时，性能调优）
 
 **举例**
 
-*   `sort telno > telno1`
-*   `ls -s | sort | tail –10`
-*   `ls -s | sort -n | tail –10`
+- `sort telno > telno1`
+- `ls -s | sort | tail –10`
+- `ls -s | sort -n | tail –10`
 
 ### tr
 
@@ -331,11 +321,11 @@ less is more
 
 **举例**
 
-*   `cat telnos | tr UVX uvx`
-*   例：用 [] 指定一个集合  
-    `cat report | tr '[a-z]' '[A-Z]'` 将小写字母改为大写字母
-*   例：用 \ 加三个八进制数字（类似 C 语言）表示一字符  
-    `cat file1 | tr % '\012'` 将 % 改为换行符，注意不要漏掉必需的单引号
+- `cat telnos | tr UVX uvx`
+- 例：用 [] 指定一个集合  
+  `cat report | tr '[a-z]' '[A-Z]'` 将小写字母改为大写字母
+- 例：用 \ 加三个八进制数字（类似 C 语言）表示一字符  
+  `cat file1 | tr % '\012'` 将 % 改为换行符，注意不要漏掉必需的单引号
 
 ### uniq
 
@@ -343,22 +333,21 @@ less is more
 
 **用法**：
 
-*   `uniq options`
-*   `uniq options input-file`
-*   `uniq options input-file output-file`
+- `uniq options`
+- `uniq options input-file`
+- `uniq options input-file output-file`
 
 **选项**：
 
-* `-u`（uniqe）只保留没有重复的行
+- `-u`（uniqe）只保留没有重复的行
 
-* `-d` （duplicated）只保留有重复的行（但只打印一次）
+- `-d` （duplicated）只保留有重复的行（但只打印一次）
 
   没有以上两个选项，则打印没有重复的行和有重复的行（但只打印一次)
 
-* `-c` （count）计数同样的行出现几次
+- `-c` （count）计数同样的行出现几次
 
-2、正则表达式
--------
+## 2、正则表达式
 
 ### 功能
 
@@ -366,22 +355,22 @@ less is more
 
 作用范围：
 
-*   字符串匹配操作和替换操作
-*   举例：Linux 中的 vi more grep yacc lex awk sed
-*   其他：Visual Studio，Word 等文本编辑器
+- 字符串匹配操作和替换操作
+- 举例：Linux 中的 vi more grep yacc lex awk sed
+- 其他：Visual Studio，Word 等文本编辑器
 
 **注意：**
 
 正则表达式规则与文件名通配符规则不同
 
-*   正则表达式规则用于文本处理的场合
-*   文件名匹配规则用于文件处理的场合
+- 正则表达式规则用于文本处理的场合
+- 文件名匹配规则用于文件处理的场合
 
 ### 单字符正则表达式
 
-* 长的正则表达式由单字符正则表达式构成的
+- 长的正则表达式由单字符正则表达式构成的
 
-* 非特殊字符与其自身匹配
+- 非特殊字符与其自身匹配
 
   如：正则表达式 a 与字符串 a 匹配，b 与 b，/ 与 /
 
@@ -389,7 +378,7 @@ less is more
 
 `\. \* \$ \^ \[ \\`
 
-正则表达式 \* 与字符串 * 匹配，与字符串 \* 不匹配
+正则表达式 \* 与字符串 \* 匹配，与字符串 \* 不匹配
 
 转义字符后除以上六种之外的不该出现其他字符，例如：不该出现 \u，这样的组合被视为 undefined（未定义的），后出的软件有可能会有特殊的解释
 
@@ -397,42 +386,42 @@ less is more
 
 匹配任意单字符
 
-#### 星号（*）
+#### 星号（\*）
 
-单字符正则表达式后跟 *，匹配此单字符正则表达式的 0 次或任意多次出现
+单字符正则表达式后跟 \*，匹配此单字符正则表达式的 0 次或任意多次出现
 
 #### 锚点（^ 与 $）
 
-*   $ 在尾部时有特殊意义，否则与其自身匹配
-    *   例：123$ 匹配文件中行尾的 123，不在行尾的 123 字符不匹配
-    *   例：$123 与字符串 $123 匹配
-    *   例：.$ 匹配行尾的任意字符
-*   ^ 在首部时有特殊意义，否则与其自身匹配
-    *   例：^printf 匹配行首的 printf 字符串，不在行首的 printf 串不匹配
-    *   例：Hel^lo 与字符串 Hel^lo 匹配
-    *   例：在 vi 中使用：`10,50s/^ //g`，删除 10-50 行的每行行首的 4 个空格
+- $ 在尾部时有特殊意义，否则与其自身匹配
+  - 例：123$ 匹配文件中行尾的 123，不在行尾的 123 字符不匹配
+  - 例：$123 与字符串 $123 匹配
+  - 例：.$ 匹配行尾的任意字符
+- ^ 在首部时有特殊意义，否则与其自身匹配
+  - 例：^printf 匹配行首的 printf 字符串，不在行首的 printf 串不匹配
+  - 例：Hel^lo 与字符串 Hel^lo 匹配
+  - 例：在 vi 中使用：`10,50s/^ //g`，删除 10-50 行的每行行首的 4 个空格
 
 #### 集合（[与]）
 
 ##### 基本用法
 
-*   在一对方括号之间的字符为集合的内容，如：单字符正则表达式 [abcd] 与 a 或 b, c, d 匹配
-*   圆点、星号、反斜线在方括号内时，代表它们自己，如：[\*.] 可匹配 3 个单字符
+- 在一对方括号之间的字符为集合的内容，如：单字符正则表达式 [abcd] 与 a 或 b, c, d 匹配
+- 圆点、星号、反斜线在方括号内时，代表它们自己，如：[\*.] 可匹配 3 个单字符
 
 ##### 用减号 - 定义一个区间
 
-*   如 [a-d] [A-Z] [a-zA-Z0-9]
-*   `[][]`集合含左右中括号两个字符
-*   减号在最后，则失去表示区间的意义
-    *   [ad-] 只与 3 个字符匹配
+- 如 [a-d] [A-Z] [a-zA-Z0-9]
+- `[][]`集合含左右中括号两个字符
+- 减号在最后，则失去表示区间的意义
+  - [ad-] 只与 3 个字符匹配
 
 ##### 用 ^ 表示补集
 
-*   ^ 在开头, 则表示与集合内字符之外的任意字符匹配
-    *   `[^a-z]` 匹配任一非小写字母
-    *   `[^][]` 匹配任一非中括号字符
-*   ^ 不在开头, 则失去其表示补集的意义
-    *   `[a-z^]` 能匹配 27 个单字符
+- ^ 在开头, 则表示与集合内字符之外的任意字符匹配
+  - `[^a-z]` 匹配任一非小写字母
+  - `[^][]` 匹配任一非中括号字符
+- ^ 不在开头, 则失去其表示补集的意义
+  - `[a-z^]` 能匹配 27 个单字符
 
 ##### 举例
 
@@ -442,24 +431,24 @@ less is more
 
 ### 正则表达式扩展
 
-* 表示**分组**：圆括号 `()`
+- 表示**分组**：圆括号 `()`
 
-* 表示逻辑运算：表示逻辑 “**或**” 的符号 `|`  
-  (xy)* 可匹配空字符串, xy, xyxy, xyxyxy  
+- 表示逻辑运算：表示逻辑 “**或**” 的符号 `|`  
+  (xy)\* 可匹配空字符串, xy, xyxy, xyxyxy  
   (pink|green) 与 pink 或 green 匹配
 
-* 重复次数定义：与星号地位类似的 `+` 和 `?`，限定重复次数 `\{m,n\}`
+- 重复次数定义：与星号地位类似的 `+` 和 `?`，限定重复次数 `\{m,n\}`
 
-  *   * 号表示它左边的单字符正则表达式的 0 次或多次重复
-  *   + 号表示 1 次或多次： `[0-9]+` 匹配长度至少为 1 数字串
-  *   ? 表示 0 次或一次： `a?` 匹配零个或一个 a
-  *   限定重复次数 `\{m,n\}`，例如： `[1-9][0-9]\{6,8\}` 匹配 7-9 位数字，首位非 0
+  - - 号表示它左边的单字符正则表达式的 0 次或多次重复
+  - - 号表示 1 次或多次： `[0-9]+` 匹配长度至少为 1 数字串
+  - ? 表示 0 次或一次： `a?` 匹配零个或一个 a
+  - 限定重复次数 `\{m,n\}`，例如： `[1-9][0-9]\{6,8\}` 匹配 7-9 位数字，首位非 0
 
-* 命名的预定义集合
+- 命名的预定义集合
 
   `[[:xdigit:]]` 表示十六进制数字，`\d` 数字，`\D` 非数字
 
-* 比 ^ 和 $ 更灵活的**锚点**定义
+- 比 ^ 和 $ 更灵活的**锚点**定义
 
   例如：寻找一个数字串，但是要求这个数字串不许出现在 “合计” 两个字之后（“合计”可作为锚点）。
 
@@ -473,42 +462,42 @@ Global regular expression print
 
 **举例**
 
-*   `grep O_RDWR *.h`
-*   `ps -ef | grep liang`
-*   `ls -l / | grep '^d' | wc –l`
-*   `grep '[0-9]*' shudu.c`
-*   `grep '[0-9][0-9]*' shudu.c`
+- `grep O_RDWR *.h`
+- `ps -ef | grep liang`
+- `ls -l / | grep '^d' | wc –l`
+- `grep '[0-9]*' shudu.c`
+- `grep '[0-9][0-9]*' shudu.c`
 
 **grep 选项**
 
-*   `-n` 显示时每行前面显示行号
-*   `-v` 显示所有不包含模式的行
-*   `-i` 字母比较时忽略字母的大小写
-*   `-E` 使用扩展的正则表达式
+- `-n` 显示时每行前面显示行号
+- `-v` 显示所有不包含模式的行
+- `-i` 字母比较时忽略字母的大小写
+- `-E` 使用扩展的正则表达式
 
 **举例**
 
-*   `grep -n main *.c`  
-    查找含有正则表达式 main 的行，并打印行号  
-    当文件数超过一个时，除了输出行号，还输出文件名
-*   `grep -v '[Dd]isable' dev.stat>dev.active`  
-    取消文件中所有含有指定模式的行，生成新文件
-*   `grep -i richard telnos`  
-    在文件中检索字符串 richard，不顾字母的大小写
+- `grep -n main *.c`  
+  查找含有正则表达式 main 的行，并打印行号  
+  当文件数超过一个时，除了输出行号，还输出文件名
+- `grep -v '[Dd]isable' dev.stat>dev.active`  
+  取消文件中所有含有指定模式的行，生成新文件
+- `grep -i richard telnos`  
+  在文件中检索字符串 richard，不顾字母的大小写
 
 ### 流编辑 sed
 
 **用法**
 
-*   `sed '命令' 文件名列表`
-*   `sed -e '命令1' -e '命令2' -e '命令3' 文件名列表`
-*   `sed -f 命令文件 文件名列表`
+- `sed '命令' 文件名列表`
+- `sed -e '命令1' -e '命令2' -e '命令3' 文件名列表`
+- `sed -f 命令文件 文件名列表`
 
 **举例**
 
-* `tail -f pppd.log | sed 's/145\.37\.23\.26/桥西/g'`，把 IP 地址 145.37.23.26 替换为 “桥西”，注意不要忘记转义符号 `\`
+- `tail -f pppd.log | sed 's/145\.37\.23\.26/桥西/g'`，把 IP 地址 145.37.23.26 替换为 “桥西”，注意不要忘记转义符号 `\`
 
-* `tail -f pppd.log | sed -f sed.cmd`
+- `tail -f pppd.log | sed -f sed.cmd`
 
   其中 sed.cmd 文件内容为
 
@@ -518,7 +507,7 @@ Global regular expression print
   s/145\.37\.123\.57/大山子/g
   ```
 
-* `cat pm25.txt | sed 's/\[[^][]*]//g'`，删除所有被中括号包围的字段
+- `cat pm25.txt | sed 's/\[[^][]*]//g'`，删除所有被中括号包围的字段
 
 **正则表达式替换**
 
@@ -530,8 +519,8 @@ Global regular expression print
 
 **用法**
 
-*   `awk '程序' 文件名列表`
-*   `awk -f 程序文件名 文件名列表`
+- `awk '程序' 文件名列表`
+- `awk -f 程序文件名 文件名列表`
 
 程序 条件 {动作}
 
@@ -541,13 +530,13 @@ Global regular expression print
 
 **处理方式**
 
-* **（行）** 输入文件的每行作为一个 **“记录”** ，变量 NR 就是行号
+- **（行）** 输入文件的每行作为一个 **“记录”** ，变量 NR 就是行号
 
-* **（列）** 每行用空格分隔开的部分，叫做记录的 **“域”**
+- **（列）** 每行用空格分隔开的部分，叫做记录的 **“域”**
 
   内置变量 $1 是第 1 域内容，依次，$2 是第 2 域内容，…… 特别的，$0 指的是整个这一行的内容
 
-* awk 的处理为：**符合条件的行，执行相应的动作**
+- awk 的处理为：**符合条件的行，执行相应的动作**
 
 **awk 描述的条件**
 
@@ -561,8 +550,7 @@ Global regular expression print
 
 ![](linux.imgs/85b54e95676a1316aa87d69f75678088-1685758477982104.png)
 
-3、文件比对
-------
+## 3、文件比对
 
 ### 文件内容比对
 
@@ -574,17 +562,17 @@ Global regular expression print
 
 **功能**
 
-*   逐字节比较两个文件是否**完全相同**
-*   两个文件完全相同时，不给出任何提示
-*   两个文件不同时，打印出第一个不同之处
-*   在 Windows 中有类似的命令 COMP
+- 逐字节比较两个文件是否**完全相同**
+- 两个文件完全相同时，不给出任何提示
+- 两个文件不同时，打印出第一个不同之处
+- 在 Windows 中有类似的命令 COMP
 
 #### md5sum / sha1sum
 
-*   使用 MD5 算法（散列函数）根据文件内容生成 16 字节 hash 值，比较 hash 值是否相同，就可断定两文件内容是否完全相同
-*   使用 SHA-1 算法的命令名为 sha1sum（20 字节 hash 值）
-*   常用于数据完整性（Data Integrity）验证和判断位于网络不同机器上的**两个文件内容是否相同**
-*   其他散列函数也可以用来完成这一任务：sha512sum
+- 使用 MD5 算法（散列函数）根据文件内容生成 16 字节 hash 值，比较 hash 值是否相同，就可断定两文件内容是否完全相同
+- 使用 SHA-1 算法的命令名为 sha1sum（20 字节 hash 值）
+- 常用于数据完整性（Data Integrity）验证和判断位于网络不同机器上的**两个文件内容是否相同**
+- 其他散列函数也可以用来完成这一任务：sha512sum
 
 ### 求文本文件版本间差异
 
@@ -594,18 +582,18 @@ Global regular expression print
 
 **用法**
 
-*   `diff file1 file2`
-*   `diff -u file1 file2`
+- `diff file1 file2`
+- `diff -u file1 file2`
 
 **功能**
 
-*   比较两个版本的文本文件，以寻找两者间差别
-*   输出格式 normal, unified **(-u)**
-*   normal 格式：列出一个如何将 file1 转化为 file2 的指令
-    *   这些指令有 **a** (Add), **c** (Change) 和 **d** (Delete)
-    *   指令字母左边的行号是 file1 的行号，右面是 file2 的行号
-    *   列出内容时，大于号后边的内容是需要在 file1 文件中增加的内容；小于号后边的内容是需从 file1 中删除的内容
-*   normal 格式文件转化指令如下表
+- 比较两个版本的文本文件，以寻找两者间差别
+- 输出格式 normal, unified **(-u)**
+- normal 格式：列出一个如何将 file1 转化为 file2 的指令
+  - 这些指令有 **a** (Add), **c** (Change) 和 **d** (Delete)
+  - 指令字母左边的行号是 file1 的行号，右面是 file2 的行号
+  - 列出内容时，大于号后边的内容是需要在 file1 文件中增加的内容；小于号后边的内容是需从 file1 中删除的内容
+- normal 格式文件转化指令如下表
 
 ![](linux.imgs/4bd5e6cb48c7e1e5d20f0c8c384ee54e-1685758477982106.png)
 
@@ -613,38 +601,37 @@ Global regular expression print
 
 ![](linux.imgs/91e5fbdda3e42ec679d38ba10143db7e-1685758477982108.png)
 
-4、vi 编辑器
---------
+## 4、vi 编辑器
 
 ### 编辑状态和光标移动
 
 #### 用户的偏好设置
 
-* 用户 HOME 目录下的文件 .exrc，记作 `$HOME/.exrc`（每用户一份，用户独立设置）
+- 用户 HOME 目录下的文件 .exrc，记作 `$HOME/.exrc`（每用户一份，用户独立设置）
 
   ```
   set number		# 每行左边显示行号
   set tabstop=4	# 制表符位置为4格对齐
   ```
 
-* 用运行时检查偏好设置  
+- 用运行时检查偏好设置  
   `:set`
 
 #### vi 的两种工作状态
 
-*   **命令状态：键盘输入解释为命令**
-    *   vi 一启动就进入命令方式，键盘输入解释为命令
-    *   一般按键无回显
-    *   以冒号可以引入行编辑的命令和查找命令
-    *   编辑命令 i a 等，可以从命令状态转到文本状态
-*   **文本状态**
-    *   键盘输入解释为输入的文本
-    *   可以输入多行，每输入完一行后按回车转入下一行
-    *   正文输入时有回显
-    *   输入完毕按键盘左上角的 Esc 键，返回到命令状态
-*   **正文插入**
-    *   命令 i 在当前字符前插入正文段，直至按 Esc 键 (insert)
-    *   命令 a 在当前字符后插入正文段，直至按 Esc 键 (append)
+- **命令状态：键盘输入解释为命令**
+  - vi 一启动就进入命令方式，键盘输入解释为命令
+  - 一般按键无回显
+  - 以冒号可以引入行编辑的命令和查找命令
+  - 编辑命令 i a 等，可以从命令状态转到文本状态
+- **文本状态**
+  - 键盘输入解释为输入的文本
+  - 可以输入多行，每输入完一行后按回车转入下一行
+  - 正文输入时有回显
+  - 输入完毕按键盘左上角的 Esc 键，返回到命令状态
+- **正文插入**
+  - 命令 i 在当前字符前插入正文段，直至按 Esc 键 (insert)
+  - 命令 a 在当前字符后插入正文段，直至按 Esc 键 (append)
 
 ![](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAACbklEQVRoQ+2aMU4dMRCGZw6RC1CSSyQdLZJtKQ2REgoiRIpQkCYClCYpkgIESQFIpIlkW+IIcIC0gUNwiEFGz+hlmbG9b1nesvGW++zxfP7H4/H6IYzkwZFwQAUZmpJVkSeniFJKA8ASIi7MyfkrRPxjrT1JjZ8MLaXUDiJuzwngn2GJaNd7vyP5IoIYY94Q0fEQIKIPRGS8947zSQTRWh8CwLuBgZx479+2BTkHgBdDAgGAC+fcywoyIFWqInWN9BSONbTmFVp/AeA5o+rjKRJ2XwBYRsRXM4ZXgAg2LAPzOCDTJYQx5pSIVlrC3EI45y611osMTHuQUPUiYpiVooerg7TWRwDAlhSM0TuI+BsD0x4kGCuFSRVzSqkfiLiWmY17EALMbCAlMCmI6IwxZo+INgQYEYKBuW5da00PKikjhNNiiPGm01rrbwDwofGehQjjNcv1SZgddALhlJEgwgJFxDNr7acmjFLqCyJuTd6LEGFttpmkYC91Hrk3s1GZFERMmUT01Xv/sQljjPlMRMsxO6WULwnb2D8FEs4j680wScjO5f3vzrlNJszESWq2LYXJgTzjZm56MCHf3zVBxH1r7ftU1splxxKYHEgoUUpTo+grEf303rPH5hxENJqDKQEJtko2q9zGeeycWy3JhpKhWT8+NM/sufIhBwKI+Mta+7pkfxKMtd8Qtdbcx4dUQZcFCQ2I6DcAnLUpf6YMPxhIDDOuxC4C6djoQUE6+tKpewWZ1wlRkq0qUhXptKTlzv93aI3jWmE0Fz2TeujpX73F9TaKy9CeMk8vZusfBnqZ1g5GqyIdJq+XrqNR5AahKr9CCcxGSwAAAABJRU5ErkJggg==)
 
@@ -652,80 +639,80 @@ Global regular expression print
 
 ##### 单字符移动
 
-*   单字符移动（四个字母键盘上相邻的按键）
-    *   **h** 光标左移一列
-    *   **j** 光标下移一行
-    *   **k** 光标上移一行
-    *   **L** 光标右移一列
-    *   一般可以直接使用键盘上的方向键代替这四个字母
-*   命令前加一整数，表示这个命令连续执行多少遍
-    *   5h 光标左移 5 列
-    *   6j 光标下移 6 行
-    *   23k 光标上移 23 行
-    *   10L 光标右移 10 列
+- 单字符移动（四个字母键盘上相邻的按键）
+  - **h** 光标左移一列
+  - **j** 光标下移一行
+  - **k** 光标上移一行
+  - **L** 光标右移一列
+  - 一般可以直接使用键盘上的方向键代替这四个字母
+- 命令前加一整数，表示这个命令连续执行多少遍
+  - 5h 光标左移 5 列
+  - 6j 光标下移 6 行
+  - 23k 光标上移 23 行
+  - 10L 光标右移 10 列
 
 注意：在 vi 命令状态下的按键命令没有回显
 
 ##### 翻页
 
-*   `Ctrl-b` 向后翻页（Backward）
-*   `Ctrl-f` 向前翻页（Forward）
-*   一般可以用 PgDn 键代替 Ctrl-f，用 PgUp 键代替 Ctrl-b
-*   也可以使用下面的命令
-    *   6Ctrl-f 向前翻 6 页
-    *   15Ctrl-b 向后翻 15 页
+- `Ctrl-b` 向后翻页（Backward）
+- `Ctrl-f` 向前翻页（Forward）
+- 一般可以用 PgDn 键代替 Ctrl-f，用 PgUp 键代替 Ctrl-b
+- 也可以使用下面的命令
+  - 6Ctrl-f 向前翻 6 页
+  - 15Ctrl-b 向后翻 15 页
 
 ##### 光标行内快速移动
 
-*   **行尾行首**
-    *   将光标移至当前行首 `^`
-    *   将光标移至当前行尾 `$`
-*   **移动一个单词**
-    *   移到右一个单词 `w`
-    *   移到左一个单词 `b`
-    *   也可以使用 6w 5b 命令
+- **行尾行首**
+  - 将光标移至当前行首 `^`
+  - 将光标移至当前行尾 `$`
+- **移动一个单词**
+  - 移到右一个单词 `w`
+  - 移到左一个单词 `b`
+  - 也可以使用 6w 5b 命令
 
 ##### 光标移动到指定行
 
-*   移到指定的行
-    *   `:476` 将光标定位于第 476 行
-    *   `:1` 将光标定位于第 1 行（文件首）
-    *   `:$` 将光标定位于文件尾
-*   在描述行号时可以使用
-    *   圆点 `.` 代表当前行号
-    *   `$` 代表最后一行的行号
-*   括号配对 `%`
-    *   把光标移到一个花括号（或圆括号，或方括号）上，按 `%` 键，则光标自动定位到与它配对的那一个括号
+- 移到指定的行
+  - `:476` 将光标定位于第 476 行
+  - `:1` 将光标定位于第 1 行（文件首）
+  - `:$` 将光标定位于文件尾
+- 在描述行号时可以使用
+  - 圆点 `.` 代表当前行号
+  - `$` 代表最后一行的行号
+- 括号配对 `%`
+  - 把光标移到一个花括号（或圆括号，或方括号）上，按 `%` 键，则光标自动定位到与它配对的那一个括号
 
 ### 查找、编辑及存盘
 
 #### 删除和替换
 
-*   删除字符
-    *   删除当前字符的命令 `x`
-    *   命令 5x 删除从当前光标开始的 5 个字符
-*   删除行
-    *   删除当前行的命令 `dd`
-    *   命令 3dd 删除从当前行开始的 3 行
-*   替换光标处字符 `r`
-    *   `ra` 命令将当前光标处字符替换为 a
-    *   将当前光标处开始的三个字符依次替换为 abc，则需要按命令 `rarbrc`
+- 删除字符
+  - 删除当前字符的命令 `x`
+  - 命令 5x 删除从当前光标开始的 5 个字符
+- 删除行
+  - 删除当前行的命令 `dd`
+  - 命令 3dd 删除从当前行开始的 3 行
+- 替换光标处字符 `r`
+  - `ra` 命令将当前光标处字符替换为 a
+  - 将当前光标处开始的三个字符依次替换为 abc，则需要按命令 `rarbrc`
 
 #### 取消和重复
 
-*   取消上一次的编辑操作 (undo) `u`
-    *   如：误删了一段正文，用 u 命令可撤销删除
-    *   如：把文件中的所有 abc 字符串替换成 xyz 字符串， 用 u 命令可撤销替换
-*   重复上一次的编辑操作 `.`
-    *   按圆点键，可以重复上一次的编辑操作
-    *   例如：按 3dd 命令删除了三行，然后按圆点键就再删除三行，接着连续按圆点键，每按一次删三行
+- 取消上一次的编辑操作 (undo) `u`
+  - 如：误删了一段正文，用 u 命令可撤销删除
+  - 如：把文件中的所有 abc 字符串替换成 xyz 字符串， 用 u 命令可撤销替换
+- 重复上一次的编辑操作 `.`
+  - 按圆点键，可以重复上一次的编辑操作
+  - 例如：按 3dd 命令删除了三行，然后按圆点键就再删除三行，接着连续按圆点键，每按一次删三行
 
 #### 文件操作命令
 
 存盘退出：
 
-*   `ZZ`
-*   `:wq<CR>`
+- `ZZ`
+- `:wq<CR>`
 
 存盘不退出：`:w<CR>`
 
@@ -735,16 +722,16 @@ Global regular expression print
 
 写文件，把第 50 行至文件尾的内容写到文件 file1 中：
 
-*   `:50,$w file1<CR>`
-*   `:50,$w! file1<CR>`，强制覆盖
+- `:50,$w file1<CR>`
+- `:50,$w! file1<CR>`，强制覆盖
 
 #### 剪贴板
 
 删除，并拷贝到剪贴板：
 
-*   `:10,50d<CR>`，删除第 10-50 行
-*   `:1,.d<CR>`，删除文件首至当前行的部分
-*   `:.,$d<CR>`，删除当前行到文件尾
+- `:10,50d<CR>`，删除第 10-50 行
+- `:1,.d<CR>`，删除文件首至当前行的部分
+- `:.,$d<CR>`，删除当前行到文件尾
 
 不删除，拷贝到剪贴板（yank）：`:10,50y<CR>`
 
@@ -770,96 +757,94 @@ Global regular expression print
 
 **查找命令**
 
-*   格式为 `/pattern`
-*   例如：`/[0-9][0-9*]`
+- 格式为 `/pattern`
+- 例如：`/[0-9][0-9*]`
 
 **继续查找命令**
 
-*   `n` 向下查找下一个 next
-*   `N` 向上查找下一个
-*   循环式搜索（向下搜索时遇到文件尾则回到文件头继续搜索）
+- `n` 向下查找下一个 next
+- `N` 向上查找下一个
+- 循环式搜索（向下搜索时遇到文件尾则回到文件头继续搜索）
 
 **替换命令（substitution）**
 
-*   格式 `:n1,n2s/pattern/string/g`
-*   例如
-    *   `:1,50s/abc/xyz/`，不带 g 则每一行只替换第一个符合模式的
-    *   `:1,50s/abc/xyz/g`，带 g 会替换一行中所有符合模式的
-    *   `:50,75s/^/ /`，第 50-75 行右移 4 列
-    *   `:50,75s/^ //`，第 50-75 行左移 4 列
-    *   `:1,$s/ *$//`，消除尾部多余的空格
-    *   `:1,$s/a[i]/b[j]/g`，小心陷阱：不能把 a[i] 替换为 b[j]，要带转义符 `\`
-    *   `:1,$/a*b/x+y/g`，小心陷阱：不能把 a*b 替换为 x+y
+- 格式 `:n1,n2s/pattern/string/g`
+- 例如
+  - `:1,50s/abc/xyz/`，不带 g 则每一行只替换第一个符合模式的
+  - `:1,50s/abc/xyz/g`，带 g 会替换一行中所有符合模式的
+  - `:50,75s/^/ /`，第 50-75 行右移 4 列
+  - `:50,75s/^ //`，第 50-75 行左移 4 列
+  - `:1,$s/ *$//`，消除尾部多余的空格
+  - `:1,$s/a[i]/b[j]/g`，小心陷阱：不能把 a[i] 替换为 b[j]，要带转义符 `\`
+  - `:1,$/a*b/x+y/g`，小心陷阱：不能把 a\*b 替换为 x+y
 
 **转义符**
 
-* 将 a[i]*b[j] 替换为 x[k]*y[n] 的命令：`:1,$s/a\[i]\*b\[j]/x[k]*y[n]/g`
+- 将 a[i]*b[j] 替换为 x[k]*y[n] 的命令：`:1,$s/a\[i]\*b\[j]/x[k]*y[n]/g`
 
-* 将 buf.len/1000 替为 buffer.size/1024 的命令：`:1,$s/buf\.len\/1000/buffer.size\/1024/g`，模式串和替换字符串中的斜线前加转义符 \ 以区别于替换命令格式中所必须的斜线
+- 将 buf.len/1000 替为 buffer.size/1024 的命令：`:1,$s/buf\.len\/1000/buffer.size\/1024/g`，模式串和替换字符串中的斜线前加转义符 \ 以区别于替换命令格式中所必须的斜线
 
   `:1,$s:buf\.len/1000:buffer.size/1024:g`，s 后面以冒号取代斜线，分界符就换为冒号，避免对斜线的转义，其他分隔符（如 `^`）同理，`:1,$s^http://www\.myvdo\.com/a/b/c/index\.html^https://www.xyvdo.com/index.html^g`
 
 **假 “死机” 问题**
 
-* 现象
+- 现象
 
   vi 编辑结束后执行存盘操作，结果导致屏幕卡死，输入任何信息都不再有显示（死机，终端死机）
 
-* 原因
+- 原因
 
   vi 编辑结束后按下 `Ctrl-S`，因为 Windows 编辑器一般设置 `Ctrl-S` 热键的动作为 Save，但 Linux 却进入流量控制状态
 
-* 解决方法
+- 解决方法
 
   按下 `Ctrl-Q` 键后流量控制解除
 
 **意外中止问题**
 
-* 现象
+- 现象
 
   vi 编辑结束后存盘，程序意外中止，编辑成果丢失，文件内容未发生变化
 
-* 原因
+- 原因
 
   vi 存盘命令 `Shift-ZZ`，误操作为 `Ctrl-ZZ`，而 `Ctrl-Z` 按键导致当前运行进程被挂起（suspend），暂停运行（但进程尚在，处于 Stopped 状态）
 
-* 解决方法
+- 解决方法
 
   调用 bash 的作业管理机制，恢复运行被 Stopped 的进程
 
-  *   `jobs`，列表当前被 Stopped 的进程有哪些
-  *   `fg %1`，或 `%1`，将 1 号作业恢复到前台（foreground）运行
+  - `jobs`，列表当前被 Stopped 的进程有哪些
+  - `fg %1`，或 `%1`，将 1 号作业恢复到前台（foreground）运行
 
-三、文件系统管理
-========
+# 三、文件系统管理
 
-1、文件通配符
--------
+## 1、文件通配符
 
 ### 文件通配符规则
 
-#### 星号 *
+#### 星号 \*
 
-*   匹配任意长度的文件名字符串（包括空字符串）
-*   点字符 (.) 作为文件名或路径名分量的**第一个字符**时，必须**显式**匹配
-*   斜线 (/) 也必须**显式**匹配
-*   例：`*file` 匹配 file, makefile，不匹配 .profile 文件，`try*c` 匹配 try1.c, try.c, try.basic
+- 匹配任意长度的文件名字符串（包括空字符串）
+- 点字符 (.) 作为文件名或路径名分量的**第一个字符**时，必须**显式**匹配
+- 斜线 (/) 也必须**显式**匹配
+- 例：`*file` 匹配 file, makefile，不匹配 .profile 文件，`try*c` 匹配 try1.c, try.c, try.basic
 
 #### 问号 ?
 
-*   匹配任一单字符
+- 匹配任一单字符
 
 #### 方括号 [ ]
 
-*   匹配括号内任一字符，也可以用减号指定一个范围
-*   例：`[A-Z]*`, `*.[ch]`, `[Mm]akefile`
+- 匹配括号内任一字符，也可以用减号指定一个范围
+- 例：`[A-Z]*`, `*.[ch]`, `[Mm]akefile`
 
 #### 波浪线 ~
 
 （Bash 特有的）
 
-*   `~`，当前用户的主目录 (home)
-*   `~kuan`，用户 kuan 的主目录 (home)
+- `~`，当前用户的主目录 (home)
+- `~kuan`，用户 kuan 的主目录 (home)
 
 #### 注意
 
@@ -869,13 +854,13 @@ Global regular expression print
 
 #### shell 和 kernel
 
-*   **shell**
-    *   shell 是一个用户态进程，如 /bin/bash
-    *   对用户提供命令行界面
-    *   **启动**其他应用程序（ap）使用操作系统核心提供的功能：包括系统命令和用户编写的程序
-*   **kernel：操作系统核心**
-    *   管理系统资源（包括内存，磁盘等）运行在核心态
-    *   通过软中断方式对用户态进程提供系统调用接口
+- **shell**
+  - shell 是一个用户态进程，如 /bin/bash
+  - 对用户提供命令行界面
+  - **启动**其他应用程序（ap）使用操作系统核心提供的功能：包括系统命令和用户编写的程序
+- **kernel：操作系统核心**
+  - 管理系统资源（包括内存，磁盘等）运行在核心态
+  - 通过软中断方式对用户态进程提供系统调用接口
 
 ![](linux.imgs/29cc9616b1155366c3f8218e01ef851d-1685758477982112.png)
 
@@ -883,31 +868,30 @@ Global regular expression print
 
 文件名通配符的处理由 shell 完成，分以下三步：
 
-*   在 shell 提示符下，从键盘输入命令，被 shell 接受
-*   shell 对所键入内容作若干加工处理，其中含有对文件通配符的展开工作（文件名生成），生成结果命令
-*   执行前面生成的结果命令
+- 在 shell 提示符下，从键盘输入命令，被 shell 接受
+- shell 对所键入内容作若干加工处理，其中含有对文件通配符的展开工作（文件名生成），生成结果命令
+- 执行前面生成的结果命令
 
 #### 举例
 
 **设当前目录下只有 try.c, zap.c, arc.c 三文件**
 
-*   键入内容 `cat *.c`
-*   实际执行 `cat arc.c try.c zap.c`（按字典序）
-*   对命令 cat 来说, 指定了 3 个文件
+- 键入内容 `cat *.c`
+- 实际执行 `cat arc.c try.c zap.c`（按字典序）
+- 对命令 cat 来说, 指定了 3 个文件
 
 `grep a*.c try.c` **与** `grep 'a*.c' try.c` **的区别**
 
-*   设当前目录下有 a1.c 和 a2.c
-*   前者实际执行 `grep a1.c a2.c try.c`，在 a2.c 和 try.c 中查找正则表达式 a1.c
-*   后者在 try.c 文件中查找正则表达式 a*.c
+- 设当前目录下有 a1.c 和 a2.c
+- 前者实际执行 `grep a1.c a2.c try.c`，在 a2.c 和 try.c 中查找正则表达式 a1.c
+- 后者在 try.c 文件中查找正则表达式 a\*.c
 
 **键入命令时的简化输入**
 
-*   手工键入 `vi m*e`，实际执行 `vi makefile`
-*   手工键入 `cd *sna*`，实际执行 `cd configure-IBM-sna-network.d`
+- 手工键入 `vi m*e`，实际执行 `vi makefile`
+- 手工键入 `cd *sna*`，实际执行 `cd configure-IBM-sna-network.d`
 
-2、文件和目录的管理
-----------
+## 2、文件和目录的管理
 
 ### 列出文件目录
 
@@ -917,36 +901,36 @@ Global regular expression print
 
 **选项**：
 
-* `-F`，Flag
+- `-F`，Flag
 
-  *   若列出的是目录，就在名字后面缀以斜线 /
-  *   若列出的是可执行文件，就在名字后面缀以星号 *
-  *   若列出的是符号连接文件，就在名字后面缀以符号 @
-  *   若列出的是普通文件，则名字面后无任何标记
+  - 若列出的是目录，就在名字后面缀以斜线 /
+  - 若列出的是可执行文件，就在名字后面缀以星号 \*
+  - 若列出的是符号连接文件，就在名字后面缀以符号 @
+  - 若列出的是普通文件，则名字面后无任何标记
 
-* `-l`，长格式列表
+- `-l`，长格式列表
 
-  * `-rwxr-x--x 1 liang stud 519 Jul 5 15:02 arg`
+  - `-rwxr-x--x 1 liang stud 519 Jul 5 15:02 arg`
 
-  * 第 1 列第 1 字符为文件属性
+  - 第 1 列第 1 字符为文件属性
 
     > `-` 普通文件，`d` 目录文件 (Dir)，`l` 符号连接文件 (Link)，`b` 块设备文件 (Block)，`c` 字符设备文件 (Char)，`p` 命名管道文件 (Pipe)
 
-  * 第 1 列 2-10 字符为文件访问权限（rwx，读、写、可执行），分别为文件所有者、同组用户、其他用户的权限
+  - 第 1 列 2-10 字符为文件访问权限（rwx，读、写、可执行），分别为文件所有者、同组用户、其他用户的权限
 
-  * 第 2 列是文件 link 数，涉及到此文件的目录项数
+  - 第 2 列是文件 link 数，涉及到此文件的目录项数
 
-* `-h`，human-readable，以便于人阅读的方式打印数值（例如：1K 234M 2G）
+- `-h`，human-readable，以便于人阅读的方式打印数值（例如：1K 234M 2G）
 
-* `-d`，directory，当 ls 的参数是目录时，不像默认的情况那样列出目录下的文件，而是列出目录自身的信息
+- `-d`，directory，当 ls 的参数是目录时，不像默认的情况那样列出目录下的文件，而是列出目录自身的信息
 
-* `-a`，all，列出文件名首字符为圆点的文件（默认情况下这些文件不列出，经常会用来保存用户的偏好设置信息或保存某些软件的状态信息）。
+- `-a`，all，列出文件名首字符为圆点的文件（默认情况下这些文件不列出，经常会用来保存用户的偏好设置信息或保存某些软件的状态信息）。
 
-* `-A`，功能与 `-a` 相同，除了不列出 . 和 ..
+- `-A`，功能与 `-a` 相同，除了不列出 . 和 ..
 
-* `-s`，size，列出文件占用的磁盘空间
+- `-s`，size，列出文件占用的磁盘空间
 
-* `-i`，inode，列出文件的 i 结点号
+- `-i`，inode，列出文件的 i 结点号
 
 ### 文件的复制与删除
 
@@ -956,18 +940,18 @@ Global regular expression print
 
 **使用方法**：
 
-*   `cp file1 file2`
-*   `cp file1 file2 … filen dir`，其中 file1, file2, …, filen 为文件名，dir 为**已有目录**名。
-*   第二种格式中：dir 必须已经存在并且是一个目录  
-    第一种格式中：file2 不存在，则创建；file2 存在且是文件，则覆盖；file2 存在且是目录，则按格式二处理
+- `cp file1 file2`
+- `cp file1 file2 … filen dir`，其中 file1, file2, …, filen 为文件名，dir 为**已有目录**名。
+- 第二种格式中：dir 必须已经存在并且是一个目录  
+  第一种格式中：file2 不存在，则创建；file2 存在且是文件，则覆盖；file2 存在且是目录，则按格式二处理
 
 **选项**：
 
-*   `-u`，update，增量拷贝，便于备份目录
-    *   根据文件的时戳，不拷贝相同的或者过时的版本的文件，以提高速度
-    *   若 dir1 和 dir2 不慎颠倒位置，不会出现灾难性后果
-*   `-r`，若给出的源文件是一目录文件，此时 cp 将递归复制该目录下所有的子目录和文件。此时目标文件必须为一个目录名。
-*   `-v`，verbose，cp 命令将告诉用户正在做什么。很多 Linux 命令都带有具有相同意义的 `-v` 选项。
+- `-u`，update，增量拷贝，便于备份目录
+  - 根据文件的时戳，不拷贝相同的或者过时的版本的文件，以提高速度
+  - 若 dir1 和 dir2 不慎颠倒位置，不会出现灾难性后果
+- `-r`，若给出的源文件是一目录文件，此时 cp 将递归复制该目录下所有的子目录和文件。此时目标文件必须为一个目录名。
+- `-v`，verbose，cp 命令将告诉用户正在做什么。很多 Linux 命令都带有具有相同意义的 `-v` 选项。
 
 **举例**：
 
@@ -981,15 +965,15 @@ Global regular expression print
 
 **使用方法**：
 
-*   `mv file1 file2`
-*   `mv file1 file2 … filen dir`
-*   `mv dir1 dir2`
+- `mv file1 file2`
+- `mv file1 file2 … filen dir`
+- `mv dir1 dir2`
 
 **功能**：
 
-*   使用 mv 命令可以将文件和目录改名
-*   可以将文件和子目录从一个目录移动到另一个目录
-*   `mv dir1 dir2` 两种执行情况（同文件系统，不同文件系统）
+- 使用 mv 命令可以将文件和目录改名
+- 可以将文件和子目录从一个目录移动到另一个目录
+- `mv dir1 dir2` 两种执行情况（同文件系统，不同文件系统）
 
 #### rm
 
@@ -997,14 +981,14 @@ Global regular expression print
 
 **使用方法**：
 
-*   `rm file1 file2 … filen`
+- `rm file1 file2 … filen`
 
 **选项**：
 
-*   `-r`，递归地（Recursive）删除实参表中的目录，也就是删除一整棵目录树。
-*   `-i`，每删除一个文件前需要操作员确认（Inform）
-*   `-f`，强迫删除（Force）。只读文件也被删除并且无提示，无操作权限的文件强制删除也不能删掉。
-*   注意：正在运行的可执行程序文件不能被删除
+- `-r`，递归地（Recursive）删除实参表中的目录，也就是删除一整棵目录树。
+- `-i`，每删除一个文件前需要操作员确认（Inform）
+- `-f`，强迫删除（Force）。只读文件也被删除并且无提示，无操作权限的文件强制删除也不能删掉。
+- 注意：正在运行的可执行程序文件不能被删除
 
 **显式区分命令选项和处理对象**
 
@@ -1030,7 +1014,7 @@ Global regular expression print
 
 **选项**：
 
-*   `-p`，自动创建路径中不存在的目录。例如：`mkdir -p database/2019/09/04/log`
+- `-p`，自动创建路径中不存在的目录。例如：`mkdir -p database/2019/09/04/log`
 
 #### rmdir
 
@@ -1048,68 +1032,68 @@ Global regular expression print
 
 **举例**：
 
-*   `find verl.d ver2.d -name '*.c' -print`  
-    范围：当前目录的子目录 ver1.d 和 ver2.d  
-    条件：与名字 *.c 匹配。注：*.c 应当用引号括起  
-    动作：把查找到的文件的路径名打印出来
+- `find verl.d ver2.d -name '*.c' -print`  
+  范围：当前目录的子目录 ver1.d 和 ver2.d  
+  条件：与名字 _.c 匹配。注：_.c 应当用引号括起  
+  动作：把查找到的文件的路径名打印出来
 
 **特点**：
 
-*   递归式查找，提供了一种遍历目录树的手段
-*   find 命令提供的灵活性：在 “动作” 中可以指定任何命令（也包括用户自己编写的处理程序），使得 find 成为一个任意处理命令可以借用来进行目录遍历的壳（类似 awk 对文本的逐行扫描， find 对目录森林中的文件和目录逐个扫描）
+- 递归式查找，提供了一种遍历目录树的手段
+- find 命令提供的灵活性：在 “动作” 中可以指定任何命令（也包括用户自己编写的处理程序），使得 find 成为一个任意处理命令可以借用来进行目录遍历的壳（类似 awk 对文本的逐行扫描， find 对目录森林中的文件和目录逐个扫描）
 
 **条件选项**：
 
-*   `-name wildcard`，文件名与 wildcard 匹配。注意：
-    *   使用正则表达式时必需的引号
-    *   这里的 “文件名” **仅指路径名的最后一部分**
-    *   对通配符的解释由 find 完成
-*   `-regex pattern`，**整个路径名**与正则表达式 pattern 匹配
-*   `-type`，`f` 普通文件，`d` 目录，`l` 符号链接文件，`c` 字符设备文件，`b` 块设备文件，`p` 管道文件
-*   `-maxdepth number`，指定搜索深度为 number
-*   `-size ±n单位`，指定文件大小（大于 +，等于，小于 -），单位有 c（字符），b （块， 512 字节），k(1024)，M，G，默认为 b
-*   `-mtime ±ndays`，文件最近修改时间
-*   `-newer file`，文件最近修改时间比 file 的还晚
-*   可以用`() –o !`等表示多条件的 “与”，“或”，“非”
+- `-name wildcard`，文件名与 wildcard 匹配。注意：
+  - 使用正则表达式时必需的引号
+  - 这里的 “文件名” **仅指路径名的最后一部分**
+  - 对通配符的解释由 find 完成
+- `-regex pattern`，**整个路径名**与正则表达式 pattern 匹配
+- `-type`，`f` 普通文件，`d` 目录，`l` 符号链接文件，`c` 字符设备文件，`b` 块设备文件，`p` 管道文件
+- `-maxdepth number`，指定搜索深度为 number
+- `-size ±n单位`，指定文件大小（大于 +，等于，小于 -），单位有 c（字符），b （块， 512 字节），k(1024)，M，G，默认为 b
+- `-mtime ±ndays`，文件最近修改时间
+- `-newer file`，文件最近修改时间比 file 的还晚
+- 可以用`() –o !`等表示多条件的 “与”，“或”，“非”
 
 **动作选项**：
 
-*   `-print`，打印查找的文件的路径名
-*   `-exec`
-    *   对查找到的目标执行某一命令
-    *   在 `-exec` 及随后的分号之间的内容作为一条命令
-    *   在这命令的命令参数中，`{}` 代表遍历到的目标文件的路径名
-*   `-ok`，与 `-exec` 类似，只是对符合条件的目标执行命令前需要经过操作员确认
+- `-print`，打印查找的文件的路径名
+- `-exec`
+  - 对查找到的目标执行某一命令
+  - 在 `-exec` 及随后的分号之间的内容作为一条命令
+  - 在这命令的命令参数中，`{}` 代表遍历到的目标文件的路径名
+- `-ok`，与 `-exec` 类似，只是对符合条件的目标执行命令前需要经过操作员确认
 
 ##### 举例
 
-* `find . -type d -print`，从当前目录开始查找，寻找所有目录，打印路径名。结果：按层次列出当前的目录结构。
+- `find . -type d -print`，从当前目录开始查找，寻找所有目录，打印路径名。结果：按层次列出当前的目录结构。
 
-* `find / -name 'stud*' -type d -print`，指定了两个条件：名字与 stud* 匹配，类型为目录。两个条件逻辑 “与”，必须同时符合这两个条件。
+- `find / -name 'stud*' -type d -print`，指定了两个条件：名字与 stud\* 匹配，类型为目录。两个条件逻辑 “与”，必须同时符合这两个条件。
 
-* `find / -type f -mtime -10 -print`，从根目录开始检索最近 10 天之内曾经修改过的普通磁盘文件（目录不算）
+- `find / -type f -mtime -10 -print`，从根目录开始检索最近 10 天之内曾经修改过的普通磁盘文件（目录不算）
 
-* `find . ! -type d -links +2 -print`，从当前目录开始检索 link 数大于 2 的非目录文件条件 “非” 用 `！`。注意：`!` 与 `-type` 之间必须保留一空格。
+- `find . ! -type d -links +2 -print`，从当前目录开始检索 link 数大于 2 的非目录文件条件 “非” 用 `！`。注意：`!` 与 `-type` 之间必须保留一空格。
 
-* `find ~ -size +100k \( -name core -o -name '*.tmp' \) -print`，从主目录开始寻找大于 100KB 的名叫 core 或有 .tmp 后缀的文件
+- `find ~ -size +100k \( -name core -o -name '*.tmp' \) -print`，从主目录开始寻找大于 100KB 的名叫 core 或有 .tmp 后缀的文件
 
-  * 使用了两条件 “或” `-o`及组合 `()` (圆括号)
+  - 使用了两条件 “或” `-o`及组合 `()` (圆括号)
 
-  * 不要遗漏了所必需的引号，反斜线和空格，尤其是圆括号前和圆括号后。圆括号是 shell 的特殊字符
+  - 不要遗漏了所必需的引号，反斜线和空格，尤其是圆括号前和圆括号后。圆括号是 shell 的特殊字符
 
-  * 其他写法
+  - 其他写法
 
     `find / -size +100k '(' -name core -o -name \*.tmp ')' -print`
 
     `find / -size +100k \( -name core –o -name \*.tmp ')' -print`
 
-* `find /lib /usr -name 'libc*.so' -exec ls -lh {} \;`
+- `find /lib /usr -name 'libc*.so' -exec ls -lh {} \;`
 
-  *   `-exec` 及随后的分号之间的内容作为一条命令执行
-  *   shell 中分号有特殊含义，前面加反斜线 \
-  *   `{}` 代表遍历时所查到的符合条件的路径名。注意，两花括号间无空格，之后的空格不可省略
+  - `-exec` 及随后的分号之间的内容作为一条命令执行
+  - shell 中分号有特殊含义，前面加反斜线 \
+  - `{}` 代表遍历时所查到的符合条件的路径名。注意，两花括号间无空格，之后的空格不可省略
 
-* 利用 find 的递归式遍历目录的功能在文件中搜寻字符串，`find src -name \*.c -exec grep -n -- --help {} /dev/null \;`，在目录 src 中所有 .c 文件中查找 --help 字符串
+- 利用 find 的递归式遍历目录的功能在文件中搜寻字符串，`find src -name \*.c -exec grep -n -- --help {} /dev/null \;`，在目录 src 中所有 .c 文件中查找 --help 字符串
 
 ### 批量处理文件
 
@@ -1125,11 +1109,11 @@ Global regular expression print
 
 ##### 构造参数列表并运行命令
 
-* 解决 shell 文件名生成时，因为文件太多，缓冲区空间受限而文件名展开失败的问题
+- 解决 shell 文件名生成时，因为文件太多，缓冲区空间受限而文件名展开失败的问题
 
-  `rm -f *.dat`，文件名 *.dat 展开失败，可以使用下面的命令 `ls | grep ".dat$" | xargs rm -f`
+  `rm -f *.dat`，文件名 \*.dat 展开失败，可以使用下面的命令 `ls | grep ".dat$" | xargs rm -f`
 
-* find 命中目录名因删除目录导致目录遍历过程遇到麻烦
+- find 命中目录名因删除目录导致目录遍历过程遇到麻烦
 
   `find . -name CVS –exec rm –rf {} \;` 改为：`find . -name CVS -print | xargs rm -rf`
 
@@ -1143,35 +1127,35 @@ Global regular expression print
 
 **选项**：
 
-*   **选项第一字母指定要执行的操作，是必需的**
-    *   `c`，create，创建新磁带。从头开始写，以前存于磁带上的数据会被覆盖掉
-    *   `t`，table，列表。磁带上的文件名列表，当不指定文件名时，将列出所有的文件。
-    *   `x`，eXtract，抽取。从磁带中抽取指定的文件，不指定文件名则抽取所有文件。
-*   **除功能字母外的其他选项**：
-    *   `v`，verbose，冗长。每处理一个文件，就打印出文件的文件名，并在该名前冠以功能字母。
-    *   `f`，file，指定设备文件名。
-    *   `z`，采用压缩格式（gzip 算法）
-    *   `j`，采用压缩格式（bzip2 算法）
-*   **options 选项**：
-    *   `-C`，大写，解压到指定目录下，前提是目录必须存在
+- **选项第一字母指定要执行的操作，是必需的**
+  - `c`，create，创建新磁带。从头开始写，以前存于磁带上的数据会被覆盖掉
+  - `t`，table，列表。磁带上的文件名列表，当不指定文件名时，将列出所有的文件。
+  - `x`，eXtract，抽取。从磁带中抽取指定的文件，不指定文件名则抽取所有文件。
+- **除功能字母外的其他选项**：
+  - `v`，verbose，冗长。每处理一个文件，就打印出文件的文件名，并在该名前冠以功能字母。
+  - `f`，file，指定设备文件名。
+  - `z`，采用压缩格式（gzip 算法）
+  - `j`，采用压缩格式（bzip2 算法）
+- **options 选项**：
+  - `-C`，大写，解压到指定目录下，前提是目录必须存在
 
 ##### 举例
 
-* `tar cvf /dev/rtc0 .`，将当前目录树备份到设 /dev/rct0 中，圆点目录是当前目录
+- `tar cvf /dev/rtc0 .`，将当前目录树备份到设 /dev/rct0 中，圆点目录是当前目录
 
-* `tar tvf /dev/rct0`，查看磁带设备 /dev/rct0 上的文件目录
+- `tar tvf /dev/rct0`，查看磁带设备 /dev/rct0 上的文件目录
 
-* `tar xvf /dev/rct0`，查看磁带设备 /dev/rct0 上的文件目录
+- `tar xvf /dev/rct0`，查看磁带设备 /dev/rct0 上的文件目录
 
-* `tar cvf my.tar *.[ch] makefile`，指定普通文件代替设备文件，将多个文件或目录树存储成一个文件。
+- `tar cvf my.tar *.[ch] makefile`，指定普通文件代替设备文件，将多个文件或目录树存储成一个文件。
 
-  *   这一命令的**危险误操作**：`tar cvf *.[ch] makefile`，漏掉了功能字母 `f` 必需的 “设备文件名” ，按照 shell 对文件名的展开规则，会覆盖掉现存的排位第一的文件，`tar cvf a1.c a2.c ab.h makefile`
+  - 这一命令的**危险误操作**：`tar cvf *.[ch] makefile`，漏掉了功能字母 `f` 必需的 “设备文件名” ，按照 shell 对文件名的展开规则，会覆盖掉现存的排位第一的文件，`tar cvf a1.c a2.c ab.h makefile`
 
-* 目录打包，设 work 是一个有多个层次的子目录
+- 目录打包，设 work 是一个有多个层次的子目录
 
-  *   `tar cvf work.tar work`
-  *   `tar cvzf work.tar.gz work`，gzip 压缩算法，对 C 源程序体积为原来的 20%
-  *   `tar cvjf work.tar.bz2 work`，bzip2 压缩算法，对 C 源程序 17%，执行时间三倍
+  - `tar cvf work.tar work`
+  - `tar cvzf work.tar.gz work`，gzip 压缩算法，对 C 源程序体积为原来的 20%
+  - `tar cvjf work.tar.bz2 work`，bzip2 压缩算法，对 C 源程序 17%，执行时间三倍
 
   查看归档文件中的文件目录：`tar tvf work.tar.gz`
 
@@ -1179,22 +1163,20 @@ Global regular expression print
 
   注意：文件名后缀 .tar, .tar.gz, .tar.bz2 仅仅是惯例，不是系统级强制要求
 
-3、命令获取信息
---------
+## 3、命令获取信息
 
 ### 配置文件
 
-*   存储配置信息或者偏好配置信息
-*   分为**系统级偏好设置**和**用户级偏好设置**， 例如 bash 的 `/etc/profile` 和 `~/.bash_profile`
-*   提供了灵活性（同一个程序文件因用户不同读取的配置文件不同而表现不同），变更这些信息不很方便， 一般不需要变化的配置信息或选项信息存入配置文件，持久化存储
+- 存储配置信息或者偏好配置信息
+- 分为**系统级偏好设置**和**用户级偏好设置**， 例如 bash 的 `/etc/profile` 和 `~/.bash_profile`
+- 提供了灵活性（同一个程序文件因用户不同读取的配置文件不同而表现不同），变更这些信息不很方便， 一般不需要变化的配置信息或选项信息存入配置文件，持久化存储
 
 ### 环境变量
 
-*   命令 `env` 可以打印当前的环境变量。例如：LANG(语言), HOME(主目录), PATH(可执行文件的查找路径), CLASSPATH(类库), CVSROOT
-*   环境变量值的获取与设置：C 语言有库函数 `getenv()`
+- 命令 `env` 可以打印当前的环境变量。例如：LANG(语言), HOME(主目录), PATH(可执行文件的查找路径), CLASSPATH(类库), CVSROOT
+- 环境变量值的获取与设置：C 语言有库函数 `getenv()`
 
-4、文件系统
-------
+## 4、文件系统
 
 ![](linux.imgs/3da5b9a2bec3b868bf669fa73bc96734-1685758477982122.png)
 
@@ -1232,8 +1214,7 @@ Global regular expression print
 
 ![](linux.imgs/821e9c463bba0f60d703524cdec6d76d-1685758477982124.png)
 
-5、文件和目录的权限
-----------
+## 5、文件和目录的权限
 
 ![](linux.imgs/e3572ee84b8bd2ed3e107a5d8ec2cbf4-1685758477982126.png)
 
@@ -1243,15 +1224,15 @@ Global regular expression print
 
 作用：修改权限
 
-* **字母形式**
+- **字母形式**
 
-  *   `chmod [ugoa] [+-=] [rwxst] 文件名表`
-  *   u – user，文件主的权限；g – group，同组用户；o – other，其他用户；a – all，上述所有；t – sticky；s – SUID
-  *   例子：`chmod u+rw *`，`chmod go-rwx *.[ch]`，`chmod a+x batch`，`chmod u=rx try2`
+  - `chmod [ugoa] [+-=] [rwxst] 文件名表`
+  - u – user，文件主的权限；g – group，同组用户；o – other，其他用户；a – all，上述所有；t – sticky；s – SUID
+  - 例子：`chmod u+rw *`，`chmod go-rwx *.[ch]`，`chmod a+x batch`，`chmod u=rx try2`
 
-* **数字形式**（八进制）
+- **数字形式**（八进制）
 
-  *   例：`chmod 644 xyz1 xyz2`
+  - 例：`chmod 644 xyz1 xyz2`
 
   ![](linux.imgs/cf72ef8c5ddd90dc11f49e7e7286bc62-1685758477982128.png)
 
@@ -1261,22 +1242,20 @@ Global regular expression print
 
 作用：决定文件 / 目录的初始权限
 
-*   用 vi 新建文件
-*   用输出重定向创建文件
-*   创建新目录
+- 用 vi 新建文件
+- 用输出重定向创建文件
+- 创建新目录
 
 **使用方法**：
 
-*   `umask`，打印当前的 umask 值
-*   `umask 022`，将 umask 值设置为八进制的 022
+- `umask`，打印当前的 umask 值
+- `umask 022`，将 umask 值设置为八进制的 022
 
 ![](linux.imgs/2a6ae6ffd4e5d05cc803ea9082e80e0d-1685758477982130.png)
 
-四、bash 及脚本程序设计
-==============
+# 四、bash 及脚本程序设计
 
-1、shell 的基本机制
--------------
+## 1、shell 的基本机制
 
 ### 历史与别名
 
@@ -1302,8 +1281,8 @@ Global regular expression print
 
 #### TAB 键补全
 
-*   每行的首个单词：TAB 键补全搜索 `$PATH` 下的命令
-*   行中的其它单词：TAB 键补全当前目录下的文件名
+- 每行的首个单词：TAB 键补全搜索 `$PATH` 下的命令
+- 行中的其它单词：TAB 键补全当前目录下的文件名
 
 ### 输入重定向
 
@@ -1341,8 +1320,7 @@ Global regular expression print
 
 ![](linux.imgs/f86b2918ffb6a4290abb0f31fe4da14d-1685758477983152.png)
 
-2、变量
-----
+## 2、变量
 
 ### 赋值与引用
 
@@ -1350,8 +1328,7 @@ Global regular expression print
 
 ![](linux.imgs/8de3ee6c322aec8dd57154beb9b88216-1685758477983156.png)
 
-3、替换
-----
+## 3、替换
 
 Shell 的替换工作：**先替换命令行再执行命令**
 
@@ -1373,11 +1350,9 @@ Shell 的替换工作：**先替换命令行再执行命令**
 
 ![](linux.imgs/1478900135fa2ba143d6b3312854ad95-1685758477983164.png)
 
-4、元字符和转义
---------
+## 4、元字符和转义
 
-5、条件
-----
+## 5、条件
 
 条件判断的依据：判定一条命令是否执行成功。方法：命令执行的返回码，0 表示成功，非 0 表示失败。可以把命令执行结束后的 “返回码” 理解为“出错代码”。
 
@@ -1393,12 +1368,12 @@ Shell 的替换工作：**先替换命令行再执行命令**
 
 ### test 和 方括号命令 [
 
-*   命令 `/usr/bin/[`，要求其最后一个命令行参数必须为 `]`
-*   除此之外 `/usr/bin/[` 与 `/usr/bin/test` 功能相同
-*   注意：不要将方括号理解成一个词法符号，而是一个名字为 `[` 的命令
-*   举例  
-    `test -r /etc/motd`  
-    `[ -r /etc/motd ]`
+- 命令 `/usr/bin/[`，要求其最后一个命令行参数必须为 `]`
+- 除此之外 `/usr/bin/[` 与 `/usr/bin/test` 功能相同
+- 注意：不要将方括号理解成一个词法符号，而是一个名字为 `[` 的命令
+- 举例  
+  `test -r /etc/motd`  
+  `[ -r /etc/motd ]`
 
 #### 文件特性检测
 
@@ -1436,8 +1411,7 @@ Shell 的替换工作：**先替换命令行再执行命令**
 
 ![](linux.imgs/cd16de6e8a3fdb5f062e343cfc45b828-1685758477983186.png)
 
-6、循环
-----
+## 6、循环
 
 ### expr
 
@@ -1465,25 +1439,21 @@ Shell 的替换工作：**先替换命令行再执行命令**
 
 ![](linux.imgs/83f46f10f0107029b72ec42d63be264e-1685758477983198.png)
 
-7、函数
-----
+## 7、函数
 
 ![](linux.imgs/292bdf1b96c90fa1183312425f8d123f-1685758477983200.png)
 
-五、重定向与管道
-========
+# 五、重定向与管道
 
 ![](linux.imgs/b26a802ceedbbfe96bf7f2dc0781863c-1685758477983202.png)
 
 ![](linux.imgs/e1ac23c257a763d1d722cd7b6d07f06c-1685758477983204.png)
 
-1、重定向
------
+## 1、重定向
 
 ![](linux.imgs/65b90168b32a6ddca6c051e270e85117-1685758477983206.png)
 
-2、管道
-----
+## 2、管道
 
 ### 创建
 
@@ -1511,8 +1481,7 @@ Shell 的替换工作：**先替换命令行再执行命令**
 
 ![](linux.imgs/2cb346f7cd61c326daac8d1ece7320fc-1685758477983222.png)
 
-3、一些命令
-------
+## 3、一些命令
 
 ### kill
 
@@ -1526,8 +1495,7 @@ Shell 的替换工作：**先替换命令行再执行命令**
 
 ![](linux.imgs/f48194444144f562598eef6f058590d8-1685758477984226.png)
 
-4、一些系统调用
---------
+## 4、一些系统调用
 
 ### signal
 
@@ -1535,13 +1503,13 @@ Shell 的替换工作：**先替换命令行再执行命令**
 
 进程对到达的信号可以在下列处理中选取一种
 
-* 设置为缺省处理方式（大部分处理是程序中止，有的会产生 core 文件）。
+- 设置为缺省处理方式（大部分处理是程序中止，有的会产生 core 文件）。
 
   `signal(SIGINT, SIG_DFL)`，参数 1 为信号宏，参数 2 为 SIG_DFL
 
-* 信号被忽略：`signal(SIGINT,SIG_IGN)`，在执行了这个调用后，进程就不再收到 SIGINT 信号（该属性会被子进程继承）
+- 信号被忽略：`signal(SIGINT,SIG_IGN)`，在执行了这个调用后，进程就不再收到 SIGINT 信号（该属性会被子进程继承）
 
-* 信号被捕捉：`signal(SIGINT,user_func)`，用户事先注册好一个函数，当信号发生后就去执行这一函数。
+- 信号被捕捉：`signal(SIGINT,user_func)`，用户事先注册好一个函数，当信号发生后就去执行这一函数。
 
 ### kill
 
@@ -1551,11 +1519,9 @@ Shell 的替换工作：**先替换命令行再执行命令**
 
 ![](linux.imgs/17c2f128702324500e112e4ae6080153-1685758477984228.png)
 
-六、进程控制
-======
+# 六、进程控制
 
-1、一些系统调用
---------
+## 1、一些系统调用
 
 ### fork
 
