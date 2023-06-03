@@ -1,4 +1,4 @@
-# 啊哈
+# Linux开发环境及应用
 
 # 一、系统状态查看工具
 
@@ -26,7 +26,6 @@
 登录成功后出现 shell 提示符
 
 - `$` Bourne Shell 系列 (sh, ksh, bash)
-
 - `#` 当前用户为超级用户 root（操作时要小心）
 
 **系统的使用**
@@ -60,19 +59,16 @@
 **使用方法**：
 
 - `date`，读取系统日期和时间，Wed Nov 7 21:09:16 CST 2018
-
 - 可以根据需要定制使出格式
 
   - `date "+%Y-%m-%d %H:%M:%S Day %j"`，2018-11-07 21:09:54 Day 311
-
   - `date "+%s"`，1541596457
-
   - > 311 指的是今天是今年的第 311 天
     >
     > 格式控制字符串：第一个字符必须为 + 号，%Y 代表年号， %m 代表月份，%M 代表分钟。
     >
     > %s 秒坐标（从 UTC1970 开始），常用于计算时间间隔
-
+    >
 - 通过 NTP 协议校对系统事件，`ntpdate`
 
   - `ntpdate 0.pool.ntp.org`，设置时间，必须 root 用户
@@ -112,13 +108,10 @@
 - 普通用户
 
   - 使用 `passwd` 命令更改自己的口令，更改前系统先验证原来的口令
-
 - 超级用户 root
 
   - 修改口令之前不验证旧的口令
-
   - 可修改自己的口令，还可强迫设置其它用户口令
-
   - 命令 `passwd liu`
 
     > 将用户 liu 的口令强迫设置为某一已知口令
@@ -126,7 +119,7 @@
     > 超级用户无法读取其它用户的口令
     >
     > 当普通用户忘记口令时，可请求超级用户强设口令
-
+    >
   - 修改超级用户 root 的口令时要特别注意
 
 ## 3、了解系统状态
@@ -143,11 +136,8 @@
 
   - 第一列：用户名；第二列：终端设备的设备文件名
   - 设备在文件系统中有一个文件名（同普通磁盘文件不同的是文件类型属于特殊文件），设备文件一般放于目录 /dev 下
-
 - `tty`，打印出当前终端的设备文件名
-
 - `who am i`，列出当前终端上的登录用户信息
-
 - `whoami`，仅列出当前终端上的登录用户名
 
 ### uptime
@@ -239,7 +229,7 @@ less is more
 
 作用：列出文件内容
 
-`cat` concatenate：串结，文本格式打印 （选项 - n：行号）  
+`cat` concatenate：串结，文本格式打印 （选项 - n：行号）
 `od` octal dump：逐字节打印（`-c`, `-t c`, `-t x1`, `-t d1`, `-t u1` 选项）
 
 **举例**
@@ -268,8 +258,8 @@ less is more
 - `tail –n 40 liu.mail`
 - `head –n -20 msg.c` 除去文件尾部 20 行其余均算 “头”
 - `tail –n +20 msg.c` 除去文件头部 20 行其余均算作 “尾”
-- `tail -f debug.txt` 实时打印文件尾部被追加的内容（选项 -f : forever）  
-  `netstat -s -p tcp | head`  
+- `tail -f debug.txt` 实时打印文件尾部被追加的内容（选项 -f : forever）
+  `netstat -s -p tcp | head`
   `ls -s | sort | head –n 20`
 
 ### tee
@@ -322,9 +312,8 @@ less is more
 **举例**
 
 - `cat telnos | tr UVX uvx`
-- 例：用 [] 指定一个集合  
-  `cat report | tr '[a-z]' '[A-Z]'` 将小写字母改为大写字母
-- 例：用 \ 加三个八进制数字（类似 C 语言）表示一字符  
+- 例：用 [] 指定一个集合`cat report | tr '[a-z]' '[A-Z]'` 将小写字母改为大写字母
+- 例：用 \ 加三个八进制数字（类似 C 语言）表示一字符
   `cat file1 | tr % '\012'` 将 % 改为换行符，注意不要漏掉必需的单引号
 
 ### uniq
@@ -340,11 +329,9 @@ less is more
 **选项**：
 
 - `-u`（uniqe）只保留没有重复的行
-
 - `-d` （duplicated）只保留有重复的行（但只打印一次）
 
   没有以上两个选项，则打印没有重复的行和有重复的行（但只打印一次)
-
 - `-c` （count）计数同样的行出现几次
 
 ## 2、正则表达式
@@ -369,7 +356,6 @@ less is more
 ### 单字符正则表达式
 
 - 长的正则表达式由单字符正则表达式构成的
-
 - 非特殊字符与其自身匹配
 
   如：正则表达式 a 与字符串 a 匹配，b 与 b，/ 与 /
@@ -432,22 +418,16 @@ less is more
 ### 正则表达式扩展
 
 - 表示**分组**：圆括号 `()`
-
-- 表示逻辑运算：表示逻辑 “**或**” 的符号 `|`  
-  (xy)\* 可匹配空字符串, xy, xyxy, xyxyxy  
-  (pink|green) 与 pink 或 green 匹配
-
+- 表示逻辑运算：表示逻辑 “**或**” 的符号 `|`(xy)\* 可匹配空字符串, xy, xyxy, xyxyxy(pink|green) 与 pink 或 green 匹配
 - 重复次数定义：与星号地位类似的 `+` 和 `?`，限定重复次数 `\{m,n\}`
 
   - - 号表示它左边的单字符正则表达式的 0 次或多次重复
   - - 号表示 1 次或多次： `[0-9]+` 匹配长度至少为 1 数字串
   - ? 表示 0 次或一次： `a?` 匹配零个或一个 a
   - 限定重复次数 `\{m,n\}`，例如： `[1-9][0-9]\{6,8\}` 匹配 7-9 位数字，首位非 0
-
 - 命名的预定义集合
 
   `[[:xdigit:]]` 表示十六进制数字，`\d` 数字，`\D` 非数字
-
 - 比 ^ 和 $ 更灵活的**锚点**定义
 
   例如：寻找一个数字串，但是要求这个数字串不许出现在 “合计” 两个字之后（“合计”可作为锚点）。
@@ -477,12 +457,9 @@ Global regular expression print
 
 **举例**
 
-- `grep -n main *.c`  
-  查找含有正则表达式 main 的行，并打印行号  
-  当文件数超过一个时，除了输出行号，还输出文件名
-- `grep -v '[Dd]isable' dev.stat>dev.active`  
-  取消文件中所有含有指定模式的行，生成新文件
-- `grep -i richard telnos`  
+- `grep -n main *.c`查找含有正则表达式 main 的行，并打印行号当文件数超过一个时，除了输出行号，还输出文件名
+- `grep -v '[Dd]isable' dev.stat>dev.active`取消文件中所有含有指定模式的行，生成新文件
+- `grep -i richard telnos`
   在文件中检索字符串 richard，不顾字母的大小写
 
 ### 流编辑 sed
@@ -496,7 +473,6 @@ Global regular expression print
 **举例**
 
 - `tail -f pppd.log | sed 's/145\.37\.23\.26/桥西/g'`，把 IP 地址 145.37.23.26 替换为 “桥西”，注意不要忘记转义符号 `\`
-
 - `tail -f pppd.log | sed -f sed.cmd`
 
   其中 sed.cmd 文件内容为
@@ -506,7 +482,6 @@ Global regular expression print
   s/102\.157\.23\.109/柳荫街/g
   s/145\.37\.123\.57/大山子/g
   ```
-
 - `cat pm25.txt | sed 's/\[[^][]*]//g'`，删除所有被中括号包围的字段
 
 **正则表达式替换**
@@ -531,11 +506,9 @@ Global regular expression print
 **处理方式**
 
 - **（行）** 输入文件的每行作为一个 **“记录”** ，变量 NR 就是行号
-
 - **（列）** 每行用空格分隔开的部分，叫做记录的 **“域”**
 
   内置变量 $1 是第 1 域内容，依次，$2 是第 2 域内容，…… 特别的，$0 指的是整个这一行的内容
-
 - awk 的处理为：**符合条件的行，执行相应的动作**
 
 **awk 描述的条件**
@@ -613,8 +586,7 @@ Global regular expression print
   set number		# 每行左边显示行号
   set tabstop=4	# 制表符位置为4格对齐
   ```
-
-- 用运行时检查偏好设置  
+- 用运行时检查偏好设置
   `:set`
 
 #### vi 的两种工作状态
@@ -781,7 +753,6 @@ Global regular expression print
 **转义符**
 
 - 将 a[i]*b[j] 替换为 x[k]*y[n] 的命令：`:1,$s/a\[i]\*b\[j]/x[k]*y[n]/g`
-
 - 将 buf.len/1000 替为 buffer.size/1024 的命令：`:1,$s/buf\.len\/1000/buffer.size\/1024/g`，模式串和替换字符串中的斜线前加转义符 \ 以区别于替换命令格式中所必须的斜线
 
   `:1,$s:buf\.len/1000:buffer.size/1024:g`，s 后面以冒号取代斜线，分界符就换为冒号，避免对斜线的转义，其他分隔符（如 `^`）同理，`:1,$s^http://www\.myvdo\.com/a/b/c/index\.html^https://www.xyvdo.com/index.html^g`
@@ -791,11 +762,9 @@ Global regular expression print
 - 现象
 
   vi 编辑结束后执行存盘操作，结果导致屏幕卡死，输入任何信息都不再有显示（死机，终端死机）
-
 - 原因
 
   vi 编辑结束后按下 `Ctrl-S`，因为 Windows 编辑器一般设置 `Ctrl-S` 热键的动作为 Save，但 Linux 却进入流量控制状态
-
 - 解决方法
 
   按下 `Ctrl-Q` 键后流量控制解除
@@ -805,11 +774,9 @@ Global regular expression print
 - 现象
 
   vi 编辑结束后存盘，程序意外中止，编辑成果丢失，文件内容未发生变化
-
 - 原因
 
   vi 存盘命令 `Shift-ZZ`，误操作为 `Ctrl-ZZ`，而 `Ctrl-Z` 按键导致当前运行进程被挂起（suspend），暂停运行（但进程尚在，处于 Stopped 状态）
-
 - 解决方法
 
   调用 bash 的作业管理机制，恢复运行被 Stopped 的进程
@@ -907,29 +874,20 @@ Global regular expression print
   - 若列出的是可执行文件，就在名字后面缀以星号 \*
   - 若列出的是符号连接文件，就在名字后面缀以符号 @
   - 若列出的是普通文件，则名字面后无任何标记
-
 - `-l`，长格式列表
 
   - `-rwxr-x--x 1 liang stud 519 Jul 5 15:02 arg`
-
   - 第 1 列第 1 字符为文件属性
 
     > `-` 普通文件，`d` 目录文件 (Dir)，`l` 符号连接文件 (Link)，`b` 块设备文件 (Block)，`c` 字符设备文件 (Char)，`p` 命名管道文件 (Pipe)
-
+    >
   - 第 1 列 2-10 字符为文件访问权限（rwx，读、写、可执行），分别为文件所有者、同组用户、其他用户的权限
-
   - 第 2 列是文件 link 数，涉及到此文件的目录项数
-
 - `-h`，human-readable，以便于人阅读的方式打印数值（例如：1K 234M 2G）
-
 - `-d`，directory，当 ls 的参数是目录时，不像默认的情况那样列出目录下的文件，而是列出目录自身的信息
-
 - `-a`，all，列出文件名首字符为圆点的文件（默认情况下这些文件不列出，经常会用来保存用户的偏好设置信息或保存某些软件的状态信息）。
-
 - `-A`，功能与 `-a` 相同，除了不列出 . 和 ..
-
 - `-s`，size，列出文件占用的磁盘空间
-
 - `-i`，inode，列出文件的 i 结点号
 
 ### 文件的复制与删除
@@ -942,7 +900,7 @@ Global regular expression print
 
 - `cp file1 file2`
 - `cp file1 file2 … filen dir`，其中 file1, file2, …, filen 为文件名，dir 为**已有目录**名。
-- 第二种格式中：dir 必须已经存在并且是一个目录  
+- 第二种格式中：dir 必须已经存在并且是一个目录
   第一种格式中：file2 不存在，则创建；file2 存在且是文件，则覆盖；file2 存在且是目录，则按格式二处理
 
 **选项**：
@@ -1032,9 +990,9 @@ Global regular expression print
 
 **举例**：
 
-- `find verl.d ver2.d -name '*.c' -print`  
-  范围：当前目录的子目录 ver1.d 和 ver2.d  
-  条件：与名字 _.c 匹配。注：_.c 应当用引号括起  
+- `find verl.d ver2.d -name '*.c' -print`
+  范围：当前目录的子目录 ver1.d 和 ver2.d
+  条件：与名字 _.c 匹配。注：_.c 应当用引号括起
   动作：把查找到的文件的路径名打印出来
 
 **特点**：
@@ -1054,7 +1012,7 @@ Global regular expression print
 - `-size ±n单位`，指定文件大小（大于 +，等于，小于 -），单位有 c（字符），b （块， 512 字节），k(1024)，M，G，默认为 b
 - `-mtime ±ndays`，文件最近修改时间
 - `-newer file`，文件最近修改时间比 file 的还晚
-- 可以用`() –o !`等表示多条件的 “与”，“或”，“非”
+- 可以用 `() –o !`等表示多条件的 “与”，“或”，“非”
 
 **动作选项**：
 
@@ -1068,31 +1026,23 @@ Global regular expression print
 ##### 举例
 
 - `find . -type d -print`，从当前目录开始查找，寻找所有目录，打印路径名。结果：按层次列出当前的目录结构。
-
 - `find / -name 'stud*' -type d -print`，指定了两个条件：名字与 stud\* 匹配，类型为目录。两个条件逻辑 “与”，必须同时符合这两个条件。
-
 - `find / -type f -mtime -10 -print`，从根目录开始检索最近 10 天之内曾经修改过的普通磁盘文件（目录不算）
-
 - `find . ! -type d -links +2 -print`，从当前目录开始检索 link 数大于 2 的非目录文件条件 “非” 用 `！`。注意：`!` 与 `-type` 之间必须保留一空格。
-
 - `find ~ -size +100k \( -name core -o -name '*.tmp' \) -print`，从主目录开始寻找大于 100KB 的名叫 core 或有 .tmp 后缀的文件
 
   - 使用了两条件 “或” `-o`及组合 `()` (圆括号)
-
   - 不要遗漏了所必需的引号，反斜线和空格，尤其是圆括号前和圆括号后。圆括号是 shell 的特殊字符
-
   - 其他写法
 
     `find / -size +100k '(' -name core -o -name \*.tmp ')' -print`
 
     `find / -size +100k \( -name core –o -name \*.tmp ')' -print`
-
 - `find /lib /usr -name 'libc*.so' -exec ls -lh {} \;`
 
   - `-exec` 及随后的分号之间的内容作为一条命令执行
   - shell 中分号有特殊含义，前面加反斜线 \
   - `{}` 代表遍历时所查到的符合条件的路径名。注意，两花括号间无空格，之后的空格不可省略
-
 - 利用 find 的递归式遍历目录的功能在文件中搜寻字符串，`find src -name \*.c -exec grep -n -- --help {} /dev/null \;`，在目录 src 中所有 .c 文件中查找 --help 字符串
 
 ### 批量处理文件
@@ -1112,7 +1062,6 @@ Global regular expression print
 - 解决 shell 文件名生成时，因为文件太多，缓冲区空间受限而文件名展开失败的问题
 
   `rm -f *.dat`，文件名 \*.dat 展开失败，可以使用下面的命令 `ls | grep ".dat$" | xargs rm -f`
-
 - find 命中目录名因删除目录导致目录遍历过程遇到麻烦
 
   `find . -name CVS –exec rm –rf {} \;` 改为：`find . -name CVS -print | xargs rm -rf`
@@ -1142,15 +1091,11 @@ Global regular expression print
 ##### 举例
 
 - `tar cvf /dev/rtc0 .`，将当前目录树备份到设 /dev/rct0 中，圆点目录是当前目录
-
 - `tar tvf /dev/rct0`，查看磁带设备 /dev/rct0 上的文件目录
-
 - `tar xvf /dev/rct0`，查看磁带设备 /dev/rct0 上的文件目录
-
 - `tar cvf my.tar *.[ch] makefile`，指定普通文件代替设备文件，将多个文件或目录树存储成一个文件。
 
   - 这一命令的**危险误操作**：`tar cvf *.[ch] makefile`，漏掉了功能字母 `f` 必需的 “设备文件名” ，按照 shell 对文件名的展开规则，会覆盖掉现存的排位第一的文件，`tar cvf a1.c a2.c ab.h makefile`
-
 - 目录打包，设 work 是一个有多个层次的子目录
 
   - `tar cvf work.tar work`
@@ -1229,7 +1174,6 @@ Global regular expression print
   - `chmod [ugoa] [+-=] [rwxst] 文件名表`
   - u – user，文件主的权限；g – group，同组用户；o – other，其他用户；a – all，上述所有；t – sticky；s – SUID
   - 例子：`chmod u+rw *`，`chmod go-rwx *.[ch]`，`chmod a+x batch`，`chmod u=rx try2`
-
 - **数字形式**（八进制）
 
   - 例：`chmod 644 xyz1 xyz2`
@@ -1371,8 +1315,8 @@ Shell 的替换工作：**先替换命令行再执行命令**
 - 命令 `/usr/bin/[`，要求其最后一个命令行参数必须为 `]`
 - 除此之外 `/usr/bin/[` 与 `/usr/bin/test` 功能相同
 - 注意：不要将方括号理解成一个词法符号，而是一个名字为 `[` 的命令
-- 举例  
-  `test -r /etc/motd`  
+- 举例
+  `test -r /etc/motd`
   `[ -r /etc/motd ]`
 
 #### 文件特性检测
@@ -1506,9 +1450,7 @@ Shell 的替换工作：**先替换命令行再执行命令**
 - 设置为缺省处理方式（大部分处理是程序中止，有的会产生 core 文件）。
 
   `signal(SIGINT, SIG_DFL)`，参数 1 为信号宏，参数 2 为 SIG_DFL
-
 - 信号被忽略：`signal(SIGINT,SIG_IGN)`，在执行了这个调用后，进程就不再收到 SIGINT 信号（该属性会被子进程继承）
-
 - 信号被捕捉：`signal(SIGINT,user_func)`，用户事先注册好一个函数，当信号发生后就去执行这一函数。
 
 ### kill
