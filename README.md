@@ -1,3 +1,9 @@
+# 没有封面😇✋
+
+
+
+来都来了，关注一下：
+
 - [A-SOUL_Official](https://space.bilibili.com/703007996)
 - [向晚](https://space.bilibili.com/672346917/)
 - [贝拉](https://space.bilibili.com/672353429/)
