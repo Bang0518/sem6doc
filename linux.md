@@ -759,9 +759,11 @@ Global regular expression print
 
 #### 文件操作命令
 
+`<CR>`表示回车
+
 存盘退出：
 
-- `ZZ`
+- `ZZ`（大写）
 - `:wq<CR>`
 
 存盘不退出：`:w<CR>`
