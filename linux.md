@@ -336,7 +336,7 @@ less is more
 - `tail –n +20 msg.c` 除去文件头部 20 行其余均算作 “尾”
 - `tail -f debug.txt` 实时打印文件尾部被追加的内容（选项 -f : forever）
 - `netstat -s -p tcp | head`
-- `ls -s | sort | head –n 20`
+- `ls -s | sort | head -n 20`
 
 ### tee
 
@@ -378,8 +378,8 @@ less is more
 **举例**
 
 - `sort telno > telno1`
-- `ls -s | sort | tail –10`
-- `ls -s | sort -n | tail –10`
+- `ls -s | sort | tail -10`
+- `ls -s | sort -n | tail -10`
 
 ### tr
 
@@ -683,7 +683,7 @@ Global regular expression print
   - 命令 i 在当前字符前插入正文段，直至按 Esc 键 (insert)
   - 命令 a 在当前字符后插入正文段，直至按 Esc 键 (append)
 
-![](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAACbklEQVRoQ+2aMU4dMRCGZw6RC1CSSyQdLZJtKQ2REgoiRIpQkCYClCYpkgIESQFIpIlkW+IIcIC0gUNwiEFGz+hlmbG9b1nesvGW++zxfP7H4/H6IYzkwZFwQAUZmpJVkSeniFJKA8ASIi7MyfkrRPxjrT1JjZ8MLaXUDiJuzwngn2GJaNd7vyP5IoIYY94Q0fEQIKIPRGS8947zSQTRWh8CwLuBgZx479+2BTkHgBdDAgGAC+fcywoyIFWqInWN9BSONbTmFVp/AeA5o+rjKRJ2XwBYRsRXM4ZXgAg2LAPzOCDTJYQx5pSIVlrC3EI45y611osMTHuQUPUiYpiVooerg7TWRwDAlhSM0TuI+BsD0x4kGCuFSRVzSqkfiLiWmY17EALMbCAlMCmI6IwxZo+INgQYEYKBuW5da00PKikjhNNiiPGm01rrbwDwofGehQjjNcv1SZgddALhlJEgwgJFxDNr7acmjFLqCyJuTd6LEGFttpmkYC91Hrk3s1GZFERMmUT01Xv/sQljjPlMRMsxO6WULwnb2D8FEs4j680wScjO5f3vzrlNJszESWq2LYXJgTzjZm56MCHf3zVBxH1r7ftU1splxxKYHEgoUUpTo+grEf303rPH5hxENJqDKQEJtko2q9zGeeycWy3JhpKhWT8+NM/sufIhBwKI+Mta+7pkfxKMtd8Qtdbcx4dUQZcFCQ2I6DcAnLUpf6YMPxhIDDOuxC4C6djoQUE6+tKpewWZ1wlRkq0qUhXptKTlzv93aI3jWmE0Fz2TeujpX73F9TaKy9CeMk8vZusfBnqZ1g5GqyIdJq+XrqNR5AahKr9CCcxGSwAAAABJRU5ErkJggg==)
+![image-20230606202608959](linux.imgs/image-20230606202608959.png)
 
 #### 光标移动
 
