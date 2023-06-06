@@ -335,8 +335,8 @@ less is more
 - `head –n -20 msg.c` 除去文件尾部 20 行其余均算 “头”
 - `tail –n +20 msg.c` 除去文件头部 20 行其余均算作 “尾”
 - `tail -f debug.txt` 实时打印文件尾部被追加的内容（选项 -f : forever）
-  `netstat -s -p tcp | head`
-  `ls -s | sort | head –n 20`
+- `netstat -s -p tcp | head`
+- `ls -s | sort | head –n 20`
 
 ### tee
 
@@ -371,7 +371,7 @@ less is more
 
 - `-n` 选项（Numberic）：对于数字按照算术值大小排序，而不是按照字符串比较规则，例如 123 与 67
 - 可以选择行中某一部分作为排序关键字
-- 选择升序或降序
+- `-r`选择升序或降序
 - 字符串比较时对字母是否区分大小写
 - 内排序外排序等算法参数选择（当数据量较大时，性能调优）
 
