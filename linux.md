@@ -1378,6 +1378,31 @@ Shell 的替换工作：**先替换命令行再执行命令**
 
 ## 4、元字符和转义
 
+### 元字符列表
+
+![image-20230613191130088](linux.imgs/image-20230613191130088.png)
+
+### 转义符
+
+- 反斜线作转义符，取消其后元字符的特殊作用
+- 如果反斜线加在非元字符前面，反斜线跟没有一样
+
+`find / -size +100 \( -name core -o -name \*.tmp \) -exec rm -f {} \;`
+
+`ls -l > file\ list`
+
+`vi 2\>\&1`
+
+`echo Unix\ \ \ System\ V 与 echo Unix System V`
+
+`echo * 与 echo \*`
+
+`echo $HOME 与 echo \$HOME`
+
+`echo Windows Directory is C:\Windows\WORK.DIR`
+
+`echo Windows Directory is C:\\Windows\\WORK.DIR`
+
 ## 5、条件
 
 条件判断的依据：判定一条命令是否执行成功。方法：命令执行的返回码，0 表示成功，非 0 表示失败。可以把命令执行结束后的 “返回码” 理解为“出错代码”。
